@@ -12,9 +12,11 @@ import App from './App.vue'
 
 // Composables
 import { createApp } from 'vue'
+import roteador from './routes'
 
 const app = createApp(App)
 
 registerPlugins(app)
 
+app.use(roteador)
 app.mount('#app')

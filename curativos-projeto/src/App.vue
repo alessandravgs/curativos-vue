@@ -15,7 +15,7 @@
 
       <v-main>
         <v-container>
-          <Relatorios/>
+          <RouterView></RouterView>
         </v-container>
       </v-main>
 
@@ -26,7 +26,6 @@
 <script setup lang="ts">
   import { ref } from 'vue'
   import MenuNavegacao from './components/MenuNavegacao.vue';
-import Relatorios from './views/Relatorios.vue';
 
   const theme = ref('light')
 

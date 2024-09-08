@@ -21,6 +21,8 @@ declare module 'vue' {
     MenuNavegacao: typeof import('./src/components/MenuNavegacao.vue')['default']
     Orientacoes: typeof import('./src/components/Orientacoes.vue')['default']
     Rodape: typeof import('./src/components/Rodape.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     SituacaoLesao: typeof import('./src/components/Lesao/SituacaoLesao.vue')['default']
   }
 }
