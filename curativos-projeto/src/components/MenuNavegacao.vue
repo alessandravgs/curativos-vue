@@ -46,7 +46,7 @@ const isExpanded = ref(true);
 const drawerWidth = ref(210); 
 
 const menuItems = [
-  { title: 'Início', route: { name: 'Pacientes' }, icon: 'mdi-home' },
+  { title: 'Início', route: { name: 'Inicio' }, icon: 'mdi-home' },
   { title: 'Curativos', route: { name: 'Curativos' }, icon: 'mdi-bandage' },
   { title: 'Pacientes', route: { name: 'Pacientes' }, icon: 'mdi-account-group' },
   { title: 'Lesões', route: { name: 'Lesoes' }, icon: 'mdi-heart-pulse' },
