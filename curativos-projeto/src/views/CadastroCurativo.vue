@@ -3,7 +3,7 @@
       <v-row no-gutters>
         <v-col>
           <v-sheet class="pa-2 ma-2 ">
-            <h1 class="cabecalho-lg">Novo Curativo</h1>
+            <h1 class="text-indigo-darken-3">Novo Curativo</h1>
           </v-sheet>
         </v-col>
       </v-row>

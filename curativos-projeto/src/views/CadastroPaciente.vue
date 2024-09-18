@@ -3,7 +3,7 @@
     <v-responsive>
       <v-row no-gutters>
         <v-col>
-          <v-sheet class="pa-2 ma-2 ">
+          <v-sheet class="pa-2 ma-2 text-indigo-darken-3">
             <h1>Cadastrar Paciente</h1>
           </v-sheet>
         </v-col>

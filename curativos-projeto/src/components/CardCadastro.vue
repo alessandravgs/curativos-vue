@@ -1,11 +1,11 @@
 <template>
     <v-card class="mx-auto" max-width="1200" border flat>
-      <v-list-item class="px-6 height-75 bg-light-blue-darken-3">
+      <v-list-item class="px-6 height-75 bg-blue-lighten-3">
       <template v-slot:prepend>
-        <v-icon class="white--text">{{ icone }}</v-icon>
+        <v-icon class="text-indigo-darken-3">{{ icone }}</v-icon>
       </template>
       <v-list-item-content>
-        <v-list-item-title class="text-white">
+        <v-list-item-title class="text-indigo-darken-3">
           <h3 class="display-3">{{ titulo }}</h3>
         </v-list-item-title>
       </v-list-item-content>
