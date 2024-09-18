@@ -33,6 +33,7 @@
                     color="indigo-darken-3"
                     text="Ir para Perfil"
                     variant="text"
+                    @click="navigateToProfissional"
                     ></v-btn>
                 </v-card-actions>
                 </v-card>
@@ -67,6 +68,15 @@
   </template>
 
 <script setup>
+
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+function navigateToProfissional() {
+  router.push({ path: '/profissional' }).catch(err => console.error(err));
+}
+
 const items = [
   { text: '586.589.468-60', icon: 'mdi-card-account-details-outline' },
   { text: 'camila_duarte@gmail.com', icon: 'mdi-email-outline' },

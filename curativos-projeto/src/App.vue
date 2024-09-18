@@ -3,7 +3,7 @@
     <v-app :theme="theme">
       <MenuNavegacao/>
 
-      <v-app-bar title="Curativo Vital" class="px-3">
+      <v-app-bar title="Curativo Vital" class="px-3 text-indigo-darken-3 font-weight-bold" >
         <v-spacer></v-spacer>
         <v-btn
           :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"

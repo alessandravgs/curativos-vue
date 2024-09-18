@@ -5,6 +5,7 @@ import CurativosListView from "@/views/CurativosListView.vue";
 import LesoesListView from "@/views/LesoesListView.vue";
 import PacientesListView from "@/views/PacientesListView.vue";
 import PaginaInicial from "@/views/PaginaInicial.vue";
+import ProfissionalDetailView from "@/views/ProfissionalDetailView.vue";
 import Relatorios from "@/views/Relatorios.vue";
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
@@ -68,6 +69,11 @@ const rotas: RouteRecordRaw[] = [
     path: '/tratamentos',
     name: 'Tratamentos',
     component: LesoesListView
+},
+{
+    path: '/profissional',
+    name: 'Profissional',
+    component: ProfissionalDetailView
 }
 ]
 
