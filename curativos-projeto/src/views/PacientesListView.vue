@@ -2,7 +2,7 @@
 <template>
     <v-card flat>
       <v-card-title class="d-flex align-center pe-2">
-        <v-icon icon="mdi-video-input-component"></v-icon> &nbsp;
+        <v-icon icon="mdi mdi-account"></v-icon> &nbsp;
         Pacientes
   
         <v-spacer></v-spacer>
@@ -17,6 +17,16 @@
           hide-details
           single-line
         ></v-text-field>
+
+        <v-spacer></v-spacer>
+
+        <v-btn  
+        color="indigo-darken-3"
+        prepend-icon="mdi mdi-plus"
+        @click="navigateToNovoPaciente">
+          Novo Paciente
+        </v-btn>
+
       </v-card-title>
   
       <v-divider></v-divider>
@@ -32,6 +42,12 @@
   </template>
   
   <script setup>
+      import { useRouter } from 'vue-router';
+
+      const router = useRouter();
+      function navigateToNovoPaciente() {
+        router.push({ path: '/pacientes/novo' }).catch(err => console.error(err));
+      }
     const headers = [
       {
         title: 'Nome',

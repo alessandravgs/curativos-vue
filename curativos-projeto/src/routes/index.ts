@@ -1,3 +1,6 @@
+import CadastroCurativo from "@/views/CadastroCurativo.vue";
+import CadastroLesao from "@/views/CadastroLesao.vue";
+import CadastroPaciente from "@/views/CadastroPaciente.vue";
 import CurativosListView from "@/views/CurativosListView.vue";
 import LesoesListView from "@/views/LesoesListView.vue";
 import PacientesListView from "@/views/PacientesListView.vue";
@@ -13,13 +16,33 @@ const rotas: RouteRecordRaw[] = [
 },    
 {
     path:'/pacientes',
-    name: 'Pacientes',
-    component: PacientesListView
+    children:[
+        {
+            path: '',
+            name: 'Pacientes',
+            component: PacientesListView
+        },
+        {
+            path:'novo',
+            name: 'Novo Paciente',
+            component: CadastroPaciente
+        },
+    ]
 },
 {
     path: '/curativos',
-    name: 'Curativos',
-    component: CurativosListView
+    children:[
+        {
+            path: '',
+            name: 'Curativos',
+            component: CurativosListView
+        },
+        {
+            path:'novo',
+            name: 'Novo Curativo',
+            component: CadastroCurativo
+        },
+    ]
 },
 {
     path: '/relatorios',
@@ -28,8 +51,18 @@ const rotas: RouteRecordRaw[] = [
 },
 {
     path: '/lesoes',
-    name: 'Lesoes',
-    component: LesoesListView
+    children:[
+        {
+            path: '',
+            name: 'Lesoes',
+            component: LesoesListView
+        },
+        {
+            path:'novo',
+            name: 'Nova Lesao',
+            component: CadastroLesao
+        },
+    ]
 },
 {
     path: '/tratamentos',

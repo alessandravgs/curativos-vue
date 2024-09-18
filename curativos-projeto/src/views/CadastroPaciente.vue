@@ -1,61 +1,67 @@
 <template>
+  <v-container  style="max-width: 1200px; margin: 0 auto;">
     <v-responsive>
-        <h1 class="cabecalho-lg">Cadastrar Paciente</h1>
-        <form @submit.prevent="submit">
-            <v-text-field
-                v-model="name.value.value"
-                :counter="10"
-                :error-messages="name.errorMessage.value"
-                label="Nome Paciente"
-            ></v-text-field>
-        
-            <v-text-field
-                v-model="phone.value.value"
-                :counter="7"
-                :error-messages="phone.errorMessage.value"
-                label="Telefone"
-            ></v-text-field>
-        
-            <v-text-field
-                v-model="email.value.value"
-                :error-messages="email.errorMessage.value"
-                label="E-mail"
-            ></v-text-field>
-        
-            <v-select
-                v-model="select.value.value"
-                :error-messages="select.errorMessage.value"
-                :items="items"
-                label="Sexo"
-            ></v-select>
-        
-            <v-checkbox
-                v-model="checkbox.value.value"
-                :error-messages="checkbox.errorMessage.value"
-                label="Option"
-                type="checkbox"
-                value="1"
-            ></v-checkbox>
-        
-            <div class="d-flex justify-end">
-                <v-btn @click="handleReset" class="border-thin" rounded="lg">
-                    Limpar
-                </v-btn>
+      <v-row no-gutters>
+        <v-col>
+          <v-sheet class="pa-2 ma-2 ">
+            <h1>Cadastrar Paciente</h1>
+          </v-sheet>
+        </v-col>
+      </v-row>
+      <v-spacer></v-spacer>
+      <form @submit.prevent="submit">
+          <v-text-field
+              v-model="name.value.value"
+              :counter="10"
+              :error-messages="name.errorMessage.value"
+              label="Nome Paciente"
+          ></v-text-field>
+      
+          <v-text-field
+              v-model="phone.value.value"
+              :counter="7"
+              :error-messages="phone.errorMessage.value"
+              label="Telefone"
+          ></v-text-field>
+      
+          <v-text-field
+              v-model="email.value.value"
+              :error-messages="email.errorMessage.value"
+              label="E-mail"
+          ></v-text-field>
+      
+          <v-select
+              v-model="select.value.value"
+              :error-messages="select.errorMessage.value"
+              :items="items"
+              label="Sexo"
+          ></v-select>
+      
+          <v-checkbox
+              v-model="checkbox.value.value"
+              :error-messages="checkbox.errorMessage.value"
+              label="Option"
+              type="checkbox"
+              value="1"
+          ></v-checkbox>
+      
+          <div class="d-flex justify-end">
+              <v-btn @click="handleReset" size="large">
+                  Limpar
+              </v-btn>
 
-                <v-btn
-                    class="ms-4 border-thin"
-                    type="submit"
-                    rounded="lg"
-                    color="success"
-                >
-                    Registrar
-                </v-btn>
-            </div>
-        </form>
-
-        
+              <v-btn
+                  class="ms-4"
+                  type="submit"
+                  size="large"
+                  color="indigo-darken-3"
+              >
+                  Registrar
+              </v-btn>
+          </div>
+      </form>       
     </v-responsive>
-    
+  </v-container>
   </template>
 
   <script setup>
@@ -107,7 +113,7 @@
     })
   </script>
 
-  <style>
+  <style scoped>
     :root {
       --cabecalhos: Paytone One, sans-serif;
     }

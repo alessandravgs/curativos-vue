@@ -1,7 +1,7 @@
 <template>
     <v-card flat>
       <v-card-title class="d-flex align-center pe-2">
-        <v-icon icon="mdi-video-input-component"></v-icon> &nbsp;
+        <v-icon icon="mdi-heart-pulse"></v-icon> &nbsp;
         Lesões
   
         <v-spacer></v-spacer>
@@ -16,6 +16,16 @@
           hide-details
           single-line
         ></v-text-field>
+
+        <v-spacer></v-spacer>
+
+        <v-btn  
+        color="indigo-darken-3"
+        prepend-icon="mdi mdi-plus"
+        @click="navigateToNovaLesao">
+          Nova Lesão
+        </v-btn>
+
       </v-card-title>
   
       <v-divider></v-divider>
@@ -61,6 +71,12 @@
   
   <script setup>
     import { ref } from 'vue'
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
+    function navigateToNovaLesao() {
+      router.push({ path: '/lesoes/novo' }).catch(err => console.error(err));
+    }
   
     const search = ref('')
     const items = [

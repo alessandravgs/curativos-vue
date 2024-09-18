@@ -31,6 +31,7 @@
     <v-btn
       class="drawer-toggle-btn"
       icon
+      variant="text"
       @click="toggleDrawer"
     >
       <v-icon>mdi-menu</v-icon>

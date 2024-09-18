@@ -1,14 +1,16 @@
 <template>
     <v-card class="mx-auto" max-width="1200" border flat>
-      <v-list-item class="px-6" height="88">
-        <template v-slot:prepend>
-          <v-avatar color="surface-light" size="32">🔰</v-avatar>
-        </template> 
-        <v-typography>
-          <h3 class="display-3">{{titulo}}</h3>
-        </v-typography>
-      </v-list-item>
-  
+      <v-list-item class="px-6 height-75 bg-light-blue-darken-3">
+      <template v-slot:prepend>
+        <v-icon class="white--text">{{ icone }}</v-icon>
+      </template>
+      <v-list-item-content>
+        <v-list-item-title class="text-white">
+          <h3 class="display-3">{{ titulo }}</h3>
+        </v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
+
       <v-divider></v-divider>
   
       <v-card-text class="text-medium-emphasis pa-6">
@@ -22,6 +24,7 @@ import { defineProps } from 'vue';
 
 defineProps<{
   titulo: string; 
+  icone: string;
 }>();
 
 </script>
