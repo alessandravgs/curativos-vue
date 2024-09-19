@@ -1,6 +1,6 @@
 <template>
     <v-card class="mx-auto" max-width="1200" border flat>
-      <v-list-item class="px-6 height-75 bg-blue-lighten-3">
+      <v-list-item class="px-6 height-75 bg-grey-lighten-2">
       <template v-slot:prepend>
         <v-icon class="text-indigo-darken-3">{{ icone }}</v-icon>
       </template>

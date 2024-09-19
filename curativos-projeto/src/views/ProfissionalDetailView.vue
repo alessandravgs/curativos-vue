@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" hover>
+  <v-card class="mx-auto" hover style="max-width: 1200px; margin: 0 auto;">
     <v-card-item>
       <div class="d-flex align-center">
         <v-card-title class="mx-1 flex-grow-1 mb-4 text-indigo-darken-3"  style="font-size: 1.8rem;">

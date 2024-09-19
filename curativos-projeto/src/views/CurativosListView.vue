@@ -29,7 +29,14 @@
     </v-card-title>
 
     <v-divider></v-divider>
-    <v-data-table v-model:search="search" :items="items">
+    <v-data-table v-model:search="search" :items="items" hover>
+      <template v-slot:item="{ item }">
+        <tr @click="navigateToDetalhes(item)">
+          <td>{{ item.lesao }}</td>
+          <td>{{ item.paciente }}</td>
+          <td>{{ item.data }}</td>
+        </tr>
+      </template>
       <template v-slot:header.stock>
         <div class="text-end">Stock</div>
       </template>
@@ -47,6 +54,10 @@ function navigateToNovoCurativo() {
   router.push({ path: '/curativos/novo' }).catch(err => console.error(err));
 }
 
+function navigateToDetalhes(item) {
+  router.push({ path: `/curativos/detalhes` }).catch(err => console.error(err));
+}
+
 const search = ref('')
 const items = [
   {
@@ -61,6 +72,11 @@ const items = [
   },
   {
     lesao: 'Lesão na braço esquerdo',
+    paciente: 'José Napoleão',
+    data: new Date(2024,9,5).toLocaleDateString(),
+  },
+  {
+    lesao: 'Lesão na perna esquerda',
     paciente: 'José Napoleão',
     data: new Date(2024,9,5).toLocaleDateString(),
   },

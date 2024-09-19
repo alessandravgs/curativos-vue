@@ -1,6 +1,7 @@
 import CadastroCurativo from "@/views/CadastroCurativo.vue";
 import CadastroLesao from "@/views/CadastroLesao.vue";
 import CadastroPaciente from "@/views/CadastroPaciente.vue";
+import CurativoDetailView from "@/views/CurativoDetailView.vue";
 import CurativosListView from "@/views/CurativosListView.vue";
 import LesoesListView from "@/views/LesoesListView.vue";
 import PacientesListView from "@/views/PacientesListView.vue";
@@ -43,6 +44,11 @@ const rotas: RouteRecordRaw[] = [
             name: 'Novo Curativo',
             component: CadastroCurativo
         },
+        {
+            path:'detalhes',
+            name: 'Detalhes Curativo',
+            component: CurativoDetailView,
+        }
     ]
 },
 {

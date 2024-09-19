@@ -37,6 +37,7 @@
         select-strategy="single"
         show-select
         fixed-header
+        hover
         ></v-data-table>
     </v-card>
   </template>
@@ -61,77 +62,77 @@
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',
-        datanasc: new Date(1995, 5,16).toDateString(),
+        datanasc: new Date(1995, 5,16).toLocaleDateString(),
       },
     ]
   </script>
