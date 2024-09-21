@@ -34,14 +34,14 @@
                 <h3 class="text-indigo-darken-3 mb-4">Lesão</h3>
                 <v-row>
                   <v-col cols="6">
-                    <p>Detalhes: Lesão na perna esquerda</p>
-                    <p>Região: Perna</p>
-                    <p>Lado: Lado Esquerdo</p>
+                    <p><strong>Detalhes: </strong>Lesão na perna esquerda</p>
+                    <p><strong>Região: </strong>Perna</p> 
+                    <p><strong>Lado: </strong>Lado Esquerdo</p>
                   </v-col>
                   <v-col cols="6">
-                    <p>Situação: Fechada</p>
-                    <p>Status: Desbridamento</p>
-                    <p>Manutenção: Em dia</p>
+                    <p><strong>Situação: </strong> Fechada</p>
+                    <p><strong>Status: </strong>Desbridamento</p>
+                    <p><strong>Manutenção: </strong> Em dia</p>
                   </v-col>
                 </v-row>
 
@@ -49,13 +49,13 @@
   
                 <v-row>
                   <v-col cols="6">
-                    <h3 class="text-indigo-darken-3">Avaliação</h3>
-                    <p>Altura: Joseph</p>
-                    <p>Largura: William</p>
-                    <p>Profundidade: 4898 Joanne Lane street</p>
+                    <h3 class="text-indigo-darken-3 mb-4">Avaliação</h3>
+                    <p><strong>Altura: </strong> 1.70 cm</p>
+                    <p><strong>Largura: </strong>30 cm</p>
+                    <p><strong>Profundidade: </strong> 5 mm</p>
                   </v-col>
                   <v-col cols="6">
-                    <h3 class="text-indigo-darken-3">Coberturas</h3>
+                    <h3 class="text-indigo-darken-3 mb-4">Coberturas</h3>
                     <p>Pomadas</p>
                     <p>Gases</p>
                     <p>Faixa</p>
@@ -68,14 +68,15 @@
                 <!-- Status de pagamento e entrega -->
                 <v-row>
                   <v-col cols="6">
-                    <p><strong class="text-indigo-darken-3">Orientações:</strong> Paciente orientado 
+                    <h3 class="text-indigo-darken-3 mb-4">Orientações</h3>
+                    <p>Paciente orientado 
                     a lavar com frequência e não inseriri pé no chão
                     para evitar dor.
                     </p>
                   </v-col>
                   <v-col cols="6">
-                    <p><strong class="text-indigo-darken-3">Detalhes:</strong> 
-                        Paciente orientado 
+                    <h3 class="text-indigo-darken-3 mb-4">Detalhes</h3>
+                    <p>Paciente orientado 
                     a lavar com frequência e não inseriri pé no chão
                     para evitar dor.
                     </p>
@@ -123,6 +124,10 @@
   <style scoped>
   h3 {
     margin-top: 20px;
+  }
+
+  p {
+    margin-bottom: 8px;
   }
   </style>
   
