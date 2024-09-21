@@ -30,15 +30,18 @@
       </v-card-title>
   
       <v-divider></v-divider>
-        <v-data-table
-        :headers="headers"
-        :items="desserts"
-        item-value="name"
-        select-strategy="single"
-        show-select
-        fixed-header
-        hover
-        ></v-data-table>
+      <v-data-table v-model:search="search" :items="pacientes" hover>
+      <template v-slot:item="{ item }">
+        <tr @click="navigateToDetalhes(item)">
+          <td>{{ item.nome }}</td>
+          <td>{{ item.sexo }}</td>
+          <td>{{ item.datanasc }}</td>
+        </tr>
+      </template>
+      <template v-slot:header.stock>
+        <div class="text-end">Stock</div>
+      </template>
+    </v-data-table>
     </v-card>
   </template>
   
@@ -49,6 +52,10 @@
       function navigateToNovoPaciente() {
         router.push({ path: '/pacientes/novo' }).catch(err => console.error(err));
       }
+
+      function navigateToDetalhes(item) {
+         router.push({ path: `/pacientes/detalhes` }).catch(err => console.error(err));
+      } 
     const headers = [
       {
         title: 'Nome',
@@ -58,7 +65,7 @@
       { title: 'Sexo', align: 'end', key: 'sexo' },
       { title: 'Data de Nascimento', align: 'end', key: 'datanasc' },
     ]
-    const desserts = [
+    const pacientes = [
       {
         nome: 'José Napoleão',
         sexo: 'Masculino',

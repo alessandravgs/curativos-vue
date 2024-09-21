@@ -1,3 +1,4 @@
+import PacienteDetailView from '@/views/PacienteDetailView.vue';
 import CadastroCurativo from "@/views/CadastroCurativo.vue";
 import CadastroLesao from "@/views/CadastroLesao.vue";
 import CadastroPaciente from "@/views/CadastroPaciente.vue";
@@ -9,6 +10,8 @@ import PaginaInicial from "@/views/PaginaInicial.vue";
 import ProfissionalDetailView from "@/views/ProfissionalDetailView.vue";
 import Relatorios from "@/views/Relatorios.vue";
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
+import LesoesDetailView from '@/views/LesoesDetailView.vue';
+import TratamentoListView from '@/views/TratamentoListView.vue';
 
 const rotas: RouteRecordRaw[] = [
 {
@@ -29,6 +32,11 @@ const rotas: RouteRecordRaw[] = [
             name: 'Novo Paciente',
             component: CadastroPaciente
         },
+        {
+            path:'detalhes',
+            name: 'Detalhes Paciente',
+            component: PacienteDetailView,
+        }
     ]
 },
 {
@@ -69,12 +77,17 @@ const rotas: RouteRecordRaw[] = [
             name: 'Nova Lesao',
             component: CadastroLesao
         },
+        {
+            path:'detalhes',
+            name: 'Detalhes Lesoes',
+            component: LesoesDetailView,
+        }
     ]
 },
 {
     path: '/tratamentos',
     name: 'Tratamentos',
-    component: LesoesListView
+    component: TratamentoListView
 },
 {
     path: '/profissional',
