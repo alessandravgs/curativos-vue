@@ -12,6 +12,8 @@ import Relatorios from "@/views/Relatorios.vue";
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import LesoesDetailView from '@/views/LesoesDetailView.vue';
 import TratamentoListView from '@/views/TratamentoListView.vue';
+import CadastroTratamento from '@/views/CadastroTratamento.vue';
+import TratamentoDetailView from '@/views/TratamentoDetailView.vue';
 
 const rotas: RouteRecordRaw[] = [
 {
@@ -86,8 +88,23 @@ const rotas: RouteRecordRaw[] = [
 },
 {
     path: '/tratamentos',
-    name: 'Tratamentos',
-    component: TratamentoListView
+    children:[
+        {
+            path: '',
+            name: 'Tratamentos',
+            component: TratamentoListView
+        },
+        {
+            path:'novo',
+            name: 'Novo Tratamento',
+            component: CadastroTratamento
+        },
+        {
+            path:'detalhes',
+            name: 'Detalhes Tratamento',
+            component: TratamentoDetailView,
+        }
+    ]
 },
 {
     path: '/profissional',

@@ -15,7 +15,7 @@
         <v-col cols="6">
           <v-row>
             <v-col>
-              <p class="text-caption font-weight-medium">Nome</p>
+              <p class="text-body-2 font-weight-bold">Nome</p>
               <p>José Napoleão Medeiros</p>
             </v-col>
           </v-row>
@@ -25,21 +25,19 @@
         <v-col cols="6">
           <v-row>
             <v-col>
-              <p class="text-caption font-weight-medium">Cpf</p>
+              <p class="text-body-2 font-weight-bold">Cpf</p>
               <p>126.758.694-58</p>
             </v-col>
           </v-row>
         </v-col>
       </v-row>
 
-      <v-divider class="mb-4"></v-divider>
-
       <v-row>
         <!-- Data nascimento -->
         <v-col cols="6">
             <v-row>
                 <v-col>
-                    <p class="text-caption font-weight-medium">Data de Nascimento</p>
+                    <p class="text-body-2 font-weight-bold">Data de Nascimento</p>
                     <p>05/08/1986</p>
                 </v-col>
             </v-row>
@@ -49,22 +47,20 @@
         <v-col cols="6">
             <v-row>
             <v-col>
-                <p class="text-caption font-weight-medium">Sexo</p>
+                <p class="text-body-2 font-weight-bold">Sexo</p>
                 <p>Masculino</p>
             </v-col>
             </v-row>
         </v-col>
 
       </v-row>
-
-      <v-divider class="mb-4"></v-divider>
-      
+     
       <v-row>
         <!-- Email -->
         <v-col cols="6">
           <v-row>
             <v-col>
-              <p class="text-caption font-weight-medium">Email</p>
+              <p class="text-body-2 font-weight-bold">Email</p>
               <p>anshan.dh81@gmail.com</p>
             </v-col>
           </v-row>
@@ -74,8 +70,40 @@
         <v-col cols="6">
             <v-row>
             <v-col>
-                <p class="text-caption font-weight-medium">Telefone</p>
+                <p class="text-body-2 font-weight-bold">Telefone</p>
                 <p>(+55) 83 98707-6482</p>
+            </v-col>
+            </v-row>
+        </v-col>
+      </v-row>
+
+      <v-divider class="mb-2 mt-2"></v-divider>
+
+      <v-row>
+            <v-col>
+                <h3 class="text-indigo-darken-3">Alergias e Comorbidades</h3>
+            </v-col>
+        </v-row>
+
+        <v-row>
+        <!-- Email -->
+        <v-col cols="6">
+          <v-row>
+            <v-col>
+              <p class="text-body-2 font-weight-bold">Alergias</p>
+              <p>Amendoin</p>
+
+            </v-col>
+          </v-row>
+        </v-col>
+
+        <!-- Telefone -->
+        <v-col cols="6">
+            <v-row>
+            <v-col>
+                <p class="text-body-2 font-weight-bold">Comorbidades</p>
+                <p>Diabetes</p>
+                <p>Pressão alta</p>
             </v-col>
             </v-row>
         </v-col>
