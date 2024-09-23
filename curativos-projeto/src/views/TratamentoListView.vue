@@ -21,10 +21,10 @@
         <v-btn  
             class="ms-1" 
             color="indigo-darken-3"
-            prepend-icon="mdi mdi-magnify"
+            :prepend-icon="limparSearch ? 'mdi mdi-broom' : 'mdi-magnify'"
             @click="searchCoberturas"
         >
-            Buscar
+            {{ limparSearch ? 'Limpar' : 'Buscar' }}
         </v-btn>
 
         <v-spacer></v-spacer>
@@ -74,7 +74,8 @@
   }
 
   function navigateToDetalhes(item: CoberturaResumoResult) {
-      router.push({ path: `/tratamentos/detalhes` }).catch(err => console.error(err));
+      console.log(item)
+      router.push({ path: `/tratamentos/detalhes`, query: { ...item }}).catch(err => console.error(err));
   } 
   
   // Definindo variáveis reativas
@@ -87,6 +88,9 @@
 
   // Estado do loading
   const loading = ref(true);
+
+  //Tratar search
+  const limparSearch = ref<boolean>(false);
 
   // Configuração listagem da quantidade de elementos exibidos por vez
   const configItems = ref([
@@ -121,6 +125,18 @@
 
   // Função que é chamada quando o usuário clica no botão de pesquisa
     const searchCoberturas = async () => {
+        if (search.value === '' && !limparSearch.value) 
+        {
+            return;
+        }
+
+        if(limparSearch.value){
+            limparSearch.value = false;
+            search.value = '';
+            await fetchCoberturas();
+            return;
+        }
+
         loading.value = true;
         try {
             const data: PaginacaoResult<CoberturaResumoResult> 
@@ -128,6 +144,7 @@
             coberturas.value = data.items;
             totalItems.value = data.totalItems;
             loading.value = false;
+            limparSearch.value = true;
         } catch (error) {
             loading.value = false;
             console.error('Erro ao buscar coberturas:', error);

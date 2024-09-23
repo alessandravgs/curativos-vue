@@ -25,4 +25,10 @@
     pageSize: number;
     items: T[];
   }
+
+  export interface CoberturaUpdateRequest {
+    Id: number;
+    Nome: string;
+    Descricao: string;
+ }
   
