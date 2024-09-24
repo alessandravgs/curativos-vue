@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { Cobertura, CoberturaResumoResult, CoberturaUpdateRequest, PaginacaoResult } from '@/types/cobertura';
+import { Cobertura, CoberturaResumoResult, CoberturaUpdateRequest } from '@/types/cobertura';
+import { PaginacaoResult } from '@/types/geral';
 
 
 const API_URL = 'https://localhost:7164/cobertura/register'; 

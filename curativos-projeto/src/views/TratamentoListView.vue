@@ -64,7 +64,8 @@
   
   <script setup lang="ts">
   import { ref, onMounted } from 'vue';
-  import { CoberturaResumoResult, PaginacaoResult } from '@/types/cobertura';
+  import { CoberturaResumoResult } from '@/types/cobertura';
+  import { PaginacaoResult } from '@/types/geral';
   import { getCoberturasPaginado, getCoberturasSearchPaginado } from '../services/tratamentoService';
   import { useRouter } from 'vue-router';
 
