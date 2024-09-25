@@ -66,7 +66,7 @@
   import { ref, onMounted } from 'vue';
   import { CoberturaResumoResult } from '@/types/cobertura';
   import { PaginacaoResult } from '@/types/geral';
-  import { getCoberturasPaginado, getCoberturasSearchPaginado } from '../services/tratamentoService';
+  import { getCoberturasPaginado, getCoberturasSearchPaginado } from '../services/TratamentoService';
   import { useRouter } from 'vue-router';
 
   const router = useRouter();

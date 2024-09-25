@@ -147,8 +147,10 @@
     const router = useRouter();
     const itemDetails = ref<Paciente | null>(null);
 
-    function navigateToEdit(id: number | undefined | null) {
-        router.push({ path: `/tratamentos/novo`, query: { id }}).catch(err => console.error(err));
+    function navigateToEdit(item: number | undefined | null) {
+      console.log("Id detalhes abaixo")
+      console.log(item)
+        router.push({ path: `/pacientes/novo`, query: { item }}).catch(err => console.error(err));
     } 
 
     const mostrarData = (dataInput: Date | undefined): string => {

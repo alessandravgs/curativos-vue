@@ -44,7 +44,7 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { createTratamento, updateCobertura } from '../services/tratamentoService'; 
+import { createTratamento, updateCobertura } from '../services/TratamentoService'; 
 import { CoberturaResumoResult } from '../types/cobertura'
 
 // Campos e validações

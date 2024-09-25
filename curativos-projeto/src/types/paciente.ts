@@ -36,6 +36,20 @@ export interface RegisterPacienteRequest{
     cpf: string,
     dataNascimento: Date,
     sexo: Sexo,
+    ddd: string,
+    telefone: string,
+    email: string,
+    alergias: number[],
+    comorbidades: number[],
+}
+
+export interface UpdatePacienteRequest{
+    id: number,
+    nome: string,
+    cpf: string,
+    dataNascimento: Date,
+    sexo: Sexo,
+    ddd: string,
     telefone: string,
     email: string,
     alergias: number[],

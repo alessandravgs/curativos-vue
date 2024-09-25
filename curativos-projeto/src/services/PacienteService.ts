@@ -1,22 +1,38 @@
 import axios from 'axios';
-import { RegisterPacienteRequest, Alergia, Comorbidade, PacienteResumoResult, Paciente } from '@/types/paciente';
+import { RegisterPacienteRequest, Alergia, Comorbidade, PacienteResumoResult, Paciente, UpdatePacienteRequest } from '@/types/paciente';
 import { PaginacaoResult } from '@/types/geral';
 import { Sexo } from '@/types/enums';
 
-export const createPaciente = async (data: RegisterPacienteRequest ) => {
-    try {
-      const response = await axios.post('https://localhost:7164/paciente/register', data);
+export const createPaciente = async (data: RegisterPacienteRequest): Promise<Paciente | null> => {
+  try {
+      const response = await axios.post<Paciente>('https://localhost:7164/paciente/register', data);
       console.log('Paciente criado com sucesso:', response.data);
-    } 
-    catch (error) {
+      return response.data;
+  } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.error('Erro ao criar paciente:', error.response?.data || error.message);
-      } 
-      else {
-      console.error('Erro inesperado:', error);
+          console.error('Erro ao criar paciente:', error.response?.data || error.message);
+      } else {
+          console.error('Erro inesperado:', error);
       }
+      return null;
   }
 };
+
+export const updatePaciente = async (data: UpdatePacienteRequest): Promise<Paciente | null> => {
+  try {
+      const response = await axios.post<Paciente>('https://localhost:7164/paciente/update', data);
+      console.log('Paciente atualizado com sucesso:', response.data);
+      return response.data;
+  } catch (error) {
+      if (axios.isAxiosError(error)) {
+          console.error('Erro ao criar paciente:', error.response?.data || error.message);
+      } else {
+          console.error('Erro inesperado:', error);
+      }
+      return null;
+  }
+};
+
 
 export const fetchAlergias = async (): Promise<Alergia[]> => {
   try {
