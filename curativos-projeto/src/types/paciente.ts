@@ -6,6 +6,7 @@ export interface PacienteResumoResult{
     sexo: Sexo,
     dataNascimento: Date,
     cpf: string,
+    telefone: string,
 }
 
 export interface Paciente {
@@ -14,6 +15,8 @@ export interface Paciente {
     cpf: string,
     dataNascimento: Date,
     sexo: Sexo,
+    telefone: string,
+    email: string,
     alergias: Alergia[],
     comorbidades: Comorbidade[]
 }
