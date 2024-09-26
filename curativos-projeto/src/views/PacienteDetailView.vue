@@ -10,7 +10,18 @@
 
             <!-- Botão Editar -->
             <v-col class="text-right">
+              <v-btn  
+                    class="mx-1"
+                    color="indigo-darken-3"
+                    prepend-icon="mdi mdi-plus"
+                    variant="outlined"
+                    @click="navigateToNovoPaciente()"
+                >
+                    Novo
+                </v-btn>
+
                 <v-btn  
+                    class="mx-1"
                     color="indigo-darken-3"
                     prepend-icon="mdi-pencil-outline"
                     @click="navigateToEdit(itemDetails?.id)"
@@ -148,10 +159,12 @@
     const itemDetails = ref<Paciente | null>(null);
 
     function navigateToEdit(item: number | undefined | null) {
-      console.log("Id detalhes abaixo")
-      console.log(item)
         router.push({ path: `/pacientes/novo`, query: { item }}).catch(err => console.error(err));
     } 
+
+    function navigateToNovoPaciente() {
+        router.push({ path: '/pacientes/novo' }).catch(err => console.error(err));
+    }
 
     const mostrarData = (dataInput: Date | undefined): string => {
       if(!dataInput) return '';

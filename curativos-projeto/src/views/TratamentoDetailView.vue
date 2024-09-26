@@ -11,6 +11,17 @@
             <!-- Botão Editar -->
             <v-col class="text-right">
                 <v-btn  
+                    class="mx-1"
+                    color="indigo-darken-3"
+                    prepend-icon="mdi mdi-plus"
+                    variant="outlined"
+                    @click="navigateToNovoTratamento()"
+                >
+                    Novo
+                </v-btn>
+
+                <v-btn  
+                    class="mx-1"
                     color="indigo-darken-3"
                     prepend-icon="mdi-pencil-outline"
                     @click="navigateToEdit(itemDetails)"
@@ -61,6 +72,10 @@ function navigateToEdit(item: CoberturaResumoResult | null) {
     console.log(item);
     router.push({ path: `/tratamentos/novo`, query: { ...item }}).catch(err => console.error(err));
 } 
+
+function navigateToNovoTratamento() {
+    router.push({ path: '/tratamentos/novo' }).catch(err => console.error(err));
+}
 
 onMounted(() => {
     itemDetails.value = {

@@ -13,6 +13,7 @@ declare module 'vue' {
     CardCadastro: typeof import('./src/components/CardCadastro.vue')['default']
     ClassificacaoLesao: typeof import('./src/components/Lesao/ClassificacaoLesao.vue')['default']
     CoberturasSelecao: typeof import('./src/components/CoberturasSelecao.vue')['default']
+    FindPaciente: typeof import('./src/components/FindPaciente.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     InputDados: typeof import('./src/components/InputDados.vue')['default']
     InputElemento: typeof import('./src/components/InputElemento.vue')['default']
