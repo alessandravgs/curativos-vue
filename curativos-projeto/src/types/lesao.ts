@@ -3,6 +3,7 @@ import { Membro } from "@/enums/Membro";
 import { Regiao } from "@/enums/Regiao";
 import { SituacaoLesao } from "@/enums/SituacaoLesao";
 import { TipoUlcera } from "@/enums/TipoUlcera";
+import { Sexo } from "./enums";
 
 export interface RegisterLesaoRequest{
     pacienteId: number,
@@ -84,4 +85,5 @@ export interface PacienteLesaoDto {
     nome: string;
     dataNascimento: Date; 
     cpf: string; 
+    sexo: Sexo;
 }

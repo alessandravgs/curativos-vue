@@ -6,6 +6,7 @@ import {  Regiao  } from '@/enums/Regiao';
 import {  LadoRegiao } from '@/enums/LadoRegiao';
 import {  SituacaoLesao  } from '@/enums/SituacaoLesao';
 import {  TipoUlcera  } from '@/enums/TipoUlcera';
+import { Sexo } from '@/enums/Sexo';
 
 export const createLesao = async (data: RegisterLesaoRequest): Promise<LesaoDto | null> => {
   try {
@@ -104,7 +105,7 @@ export const getLesaoById = async (parametro: number): Promise<LesaoDto> => {
     }
     return {
         id: 0,
-        paciente: {id: 0, nome: '', dataNascimento: new Date(), cpf: ''},
+        paciente: {id: 0, nome: '', dataNascimento: new Date(), cpf: '', sexo: Sexo.Feminino},
         membro: Membro.None, 
         regiao: Regiao.None, 
         ladoRegiao: LadoRegiao.Nenhuma, 

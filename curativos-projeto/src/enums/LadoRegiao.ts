@@ -5,7 +5,7 @@ export enum LadoRegiao{
 }
 
 export const LadoRegiaoDisplayNames: { [key in LadoRegiao]: string } = {
-    [LadoRegiao.Nenhuma]: 'Nenhuma',
+    [LadoRegiao.Nenhuma]: 'Nenhum',
     [LadoRegiao.Esquerda]: 'Esquerda',
     [LadoRegiao.Direita]: 'Direita',
 };

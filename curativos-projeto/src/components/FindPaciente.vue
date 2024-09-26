@@ -16,7 +16,7 @@
         </v-row>
   
         <!-- Dialog para buscar pacientes -->
-        <v-dialog v-model="dialog" max-width="700px" :disabled="isDialogDisabled">
+        <v-dialog v-model="dialog" max-width="700px" v-if="!isDialogDisabled">
           <v-card>
             <v-row>
                   <v-col>
@@ -86,7 +86,7 @@
   </template>
   
   <script setup lang="ts">
-    import { ref, defineProps, onMounted, computed   } from 'vue';
+    import { ref, defineProps, onMounted   } from 'vue';
     import { PacienteResumoResult } from '@/types/paciente';
     import { getPacientesSearchPaginado, getPacienteById } from '@/services/PacienteService';
     import { PaginacaoResult } from '@/types/geral';
@@ -176,6 +176,7 @@
         try {
           const data = await getPacienteById(props.id);
           selectedPaciente.value = data.nome;
+          isDialogDisabled.value = true;
         } catch (error) {
           console.error('Erro ao buscar pacientes:', error);
         } finally {
@@ -184,9 +185,7 @@
       }
     };
 
-    const isDialogDisabled = computed(() => {
-      return props.id === 0; 
-    });
+    const isDialogDisabled = ref(false);
 
     onMounted(async () => {
       await fetchPacientesById();
