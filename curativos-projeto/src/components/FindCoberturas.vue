@@ -10,9 +10,8 @@
                 multiple
                 @click="openDialog"
                 readonly
-                rounded
                 prepend-inner-icon="mdi-format-list-checks"
-                class="rounded-textarea"
+                 class="custom-padding"
             ></v-combobox>
           </v-col>
         </v-row>
@@ -89,10 +88,14 @@
 </template>
   
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, defineProps } from 'vue';
 import { PaginacaoResult } from '@/types/geral';
 import { CoberturaResumoResult, CoberturaResumoResultSelect } from '@/types/cobertura';
 import { getCoberturasPaginado } from '@/services/TratamentoService';
+
+const props = defineProps<{
+      coberturasEdit: CoberturaResumoResultSelect[]; 
+}>();
 
 const emit = defineEmits(['coberturaSelecionado']);
 
@@ -187,6 +190,17 @@ const closeDialog = () => {
 };
 
 onMounted(() => {
+    if(props.coberturasEdit){
+        coberturasSelecionadas.value = props.coberturasEdit;
+    }
+
     fetchCoberturas();
 });
 </script>
+
+
+<style scoped>
+.custom-padding {
+padding-left: 10px; 
+}
+</style>

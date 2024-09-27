@@ -10,7 +10,7 @@
               prepend-inner-icon="mdi-magnify"
               @click="openDialog"
               readonly
-              rounded
+              class="custom-padding"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -196,6 +196,10 @@
   .selected-paciente {
     background-color: rgba(0, 0, 255, 0.1); /* Indica o paciente selecionado */
   }
+
+  .custom-padding {
+  padding-left: 10px;
+}
 
 </style>
   

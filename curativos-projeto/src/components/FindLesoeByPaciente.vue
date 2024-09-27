@@ -8,16 +8,31 @@
               v-model="selectedLesao"
               label="Selecionar Lesão"
               prepend-inner-icon="mdi-order-bool-ascending-variant"
-              rounded
               @click="openDialog"
               readonly
+              class="custom-padding"
             ></v-text-field>
           </v-col>
         </v-row>
   
         <!-- Dialog para buscar lesões -->
         <v-dialog v-model="dialog" max-width="700px" v-if="!isDialogDisabled" persistent>
-          <v-card>
+
+          <!-- Card de informação quando idPaciente for zero -->
+          <v-card v-if="props.idPaciente === 0" class="mb-4">
+            <v-card-title class="headline text-center">
+              <h3 class="text-indigo-darken-3 mt-2">Escolha um Paciente Primeiro</h3>
+            </v-card-title>
+            <v-card-text>
+              É necessário selecionar primeiro um paciente para mostrar as lesões associadas a ele.
+            </v-card-text>
+            <v-card-actions>
+              <v-btn color="green" @click="closeDialog">Confirmar</v-btn>
+            </v-card-actions>
+          </v-card>
+
+          <!-- Card de seleção de lesão -->
+          <v-card v-else>
             <v-row>
                   <v-col>
                         <v-card-title class="headline"><h3 class="text-indigo-darken-3 mt-2">Buscar Lesões</h3></v-card-title>
@@ -118,11 +133,13 @@
 
     const props = defineProps<{
       idPaciente: number; 
+      nomeLesao: string;
     }>();
 
     const emit = defineEmits(['lesaoSelecionado']);
   
     const semDados = ref('Não foram encontradas lesões para o paciente selecionado.');
+    const isDialogDisabled = ref(false);
 
     // Total de items no servidor
     const totalItems = ref(0);
@@ -146,7 +163,10 @@
 
     // Função para buscar lesões paginadas
     const fetchLesoes = async () => {
-        console.log(props.idPaciente)
+        if(props.nomeLesao !== ''){       
+            selectedLesao.value = props.nomeLesao;
+            isDialogDisabled.value = true;
+        }
         if(props.idPaciente){
             try {
                 const data: PaginacaoResult<LesaoResumoResult> = await getLesoesSearchByPacientePaginado(props.idPaciente, page.value, itemsPerPage.value);
@@ -167,6 +187,7 @@
 
     // Abre o dialog de busca
     const openDialog = () => {
+        console.log(props.idPaciente)
         dialog.value = true;
     };
 
@@ -190,8 +211,6 @@
         closeDialog();
     };
 
-    const isDialogDisabled = ref(false);
-
     watch(() => props.idPaciente, fetchLesoes);
 
     onMounted(async () => {
@@ -202,6 +221,9 @@
   <style scoped>
   .selected-paciente {
     background-color: rgba(0, 0, 255, 0.1); /* Indica o paciente selecionado */
+  }
+  .custom-padding {
+  padding-left: 10px; 
   }
   </style>
   

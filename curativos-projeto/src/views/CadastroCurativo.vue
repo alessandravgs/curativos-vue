@@ -21,9 +21,10 @@
 
             <template v-else>
               <form @submit.prevent="submitForm">
-                <v-row>
-                  <v-col>
-                      <h3 class="text-indigo-darken-3 mt-2">Paciente</h3>
+                <v-row class="mt-1">
+                  <v-col class="d-flex align-center">
+                    <v-icon color="indigo-darken-3" class="mr-2" style="font-size: 24px;">mdi mdi-account</v-icon>
+                    <h3 class="text-indigo-darken-3 mb-0">Paciente</h3>
                   </v-col>
                 </v-row>
 
@@ -32,44 +33,47 @@
                 </v-row>
 
                 <v-row>
-                  <v-col>
-                      <h3 class="text-indigo-darken-3">Lesão</h3>
+                  <v-col class="d-flex align-center">
+                    <v-icon color="indigo-darken-3" class="mr-2" style="font-size: 24px;">mdi-heart-pulse</v-icon>
+                    <h3 class="text-indigo-darken-3 mb-0">Lesão</h3>
                   </v-col>
                 </v-row>
 
                 <v-row>
-                  <FindLesoeByPaciente :idPaciente="pacienteDataId" @lesao-selecionado="onLesaoSelecionada"/>
+                  <FindLesoeByPaciente :idPaciente="pacienteDataId" :nome-lesao="lesaoEditValue" @lesao-selecionado="onLesaoSelecionada"/>
                 </v-row>
                 
                <v-row>
-                  <v-col>
-                      <h3 class="text-indigo-darken-3">Coberturas</h3>
+                  <v-col class="d-flex align-center">
+                    <v-icon color="indigo-darken-3" class="mr-2" style="font-size: 24px;">mdi-medication-outline</v-icon>
+                    <h3 class="text-indigo-darken-3 mb-0">Coberturas</h3>
                   </v-col>
                 </v-row>
 
                 <v-row>
-                  <FindCoberturas @cobertura-selecionado="onCoberturaSelecionada"/> 
+                  <FindCoberturas :coberturasEdit="coberturasSelecionadasEdit" @cobertura-selecionado="onCoberturaSelecionada"/> 
                 </v-row>
 
                 <v-row>
-                  <v-col>
-                      <h3 class="text-indigo-darken-3">Avaliação</h3>
+                  <v-col class="d-flex align-center">
+                    <v-icon color="indigo-darken-3" class="mr-2" style="font-size: 24px;">mdi mdi-text-box-check-outline</v-icon>
+                    <h3 class="text-indigo-darken-3 mb-0">Avaliação</h3>
                   </v-col>
                 </v-row>
 
                 <v-row>
                   <v-col>
-                    <v-text-field label="Altura" v-model="altura" :rules="[rulesNumber.number]" 
+                    <v-text-field label="Altura (cm)" v-model="altura" :rules="[rulesNumber.number]" 
                     class="rounded-textarea"></v-text-field>
                   </v-col>
 
                   <v-col>
-                    <v-text-field label="Largura" v-model="largura" :rules="[rulesNumber.number]" 
+                    <v-text-field label="Largura (cm)" v-model="largura" :rules="[rulesNumber.number]" 
                     class="rounded-textarea"></v-text-field>
                   </v-col>
 
                   <v-col>
-                    <v-text-field label="Profundidade" v-model="profundidade" :rules="[rulesNumber.number]" 
+                    <v-text-field label="Profundidade (cm)" v-model="profundidade" :rules="[rulesNumber.number]" 
                     class="rounded-textarea"></v-text-field>
                   </v-col>
                   
@@ -80,8 +84,9 @@
                 </v-row>
 
                 <v-row>
-                  <v-col>
-                      <h3 class="text-indigo-darken-3">Detalhes</h3>
+                  <v-col class="d-flex align-center">
+                    <v-icon color="indigo-darken-3" class="mr-2" style="font-size: 24px;">mdi-format-annotation-plus</v-icon>
+                    <h3 class="text-indigo-darken-3 mb-0">Detalhes</h3>
                   </v-col>
                 </v-row>
 
@@ -92,8 +97,9 @@
                 </v-row>
 
                 <v-row>
-                  <v-col>
-                      <h3 class="text-indigo-darken-3">Orientações</h3>
+                  <v-col class="d-flex align-center">
+                    <v-icon color="indigo-darken-3" class="mr-2" style="font-size: 24px;">mdi-information-outline</v-icon>
+                    <h3 class="text-indigo-darken-3 mb-0">Orientações</h3>
                   </v-col>
                 </v-row>
 
@@ -122,14 +128,13 @@ import { ref, onMounted, nextTick } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { PacienteResumoResult,  } from '@/types/paciente';
 import FindPaciente from '@/components/FindPaciente.vue';
-import { LesaoDto, LesaoResumoResult } from '@/types/lesao';
-import { createLesao, getLesaoById, updateLesao } from '@/services/LesaoService';
+import { LesaoResumoResult } from '@/types/lesao';
 import FindCoberturas from '@/components/FindCoberturas.vue';
-import { CoberturaResumoResultSelect } from '@/types/cobertura';
+import { CoberturaResumoResult, CoberturaResumoResultSelect } from '@/types/cobertura';
 import FindLesoeByPaciente from '@/components/FindLesoeByPaciente.vue';
-import { RegisterCurativoRequest } from '@/types/curativo';
+import { CurativoDto, RegisterCurativoRequest, PacienteCurativoDto, LesaoCurativoDto, UpdateCurativoRequest } from '@/types/curativo';
 import { SituacaoLesaoDisplayNames, getSelectedSituacaoLesao, SituacaoLesao } from '@/enums/SituacaoLesao';
-import { createCurativo } from '@/services/CurativoService';
+import { createCurativo, getCurativoById, updateCurativo } from '@/services/CurativoService';
 
 // Id de Curativo
 const idItem = ref(0);
@@ -141,10 +146,12 @@ const loading = ref(false);
 
 //Campos de Coberturas
 const cobeturasSelecionadas = ref<CoberturaResumoResultSelect[]>([]);
+const coberturasSelecionadasEdit = ref<CoberturaResumoResultSelect[]>([]);
 
 //Campos lesões 
 const lesaoSelecionada = ref<LesaoResumoResult>();
 const lesaoDataId = ref(0);
+const lesaoEditValue = ref('');
 
 //Campos de avaliação
 const altura = ref('');
@@ -223,8 +230,8 @@ onMounted(async () => {
     if (id) {
         isEditing.value = true;
         await nextTick();
-        const lesaoData = await getLesaoById(id);
-        preencherDadosTela(lesaoData);
+        const curativoData = await getCurativoById(id);
+        preencherDadosTela(curativoData);
     } 
 
   } catch (error) {
@@ -245,7 +252,12 @@ const submitForm = async () => {
     }
     
     if(isEditing.value){
-
+      var curativoUpdate = getUpdateCurativo();
+      await updateCurativo(curativoUpdate);    
+      
+      if(!curativoUpdate){
+        throw new Error("Curativo não foi atualizado."); 
+      }
     }
     else{
       var novoCurativo = getRegisterCurativo();
@@ -284,9 +296,68 @@ function camposEstaoPreenchidos() {
 }
 
 
-function preencherDadosTela(lesao: LesaoDto) {
- 
+function preencherDadosTela(curativo: CurativoDto) {
+    if (curativo.paciente) {
+        pacienteSelecionado.value = converterPaciente(curativo.paciente, '');
+        pacienteDataId.value = curativo.paciente.id;
+    }
+
+    if (curativo.lesao) {
+        lesaoSelecionada.value = converterLesao(curativo.lesao, curativo.paciente.nome);
+        lesaoDataId.value = curativo.lesao.id;
+        lesaoEditValue.value = curativo.lesao.detalhes;
+    }
+
+    if (curativo.evolucao) {
+        altura.value = curativo.evolucao.altura.toString();
+        largura.value = curativo.evolucao.largura.toString();
+        profundidade.value = curativo.evolucao.profundidade.toString();
+    }
+
+    if (curativo.coberturas) {
+        cobeturasSelecionadas.value = converterCoberturas(curativo.coberturas);
+        coberturasSelecionadasEdit.value = converterCoberturas(curativo.coberturas);
+    }
+
+    orientacoes.value = curativo.orientacoes || '';
+    detalhes.value = curativo.detalhes || '';
+
+    if (curativo.lesao.situacao) {
+        situacaoSelected.value = SituacaoLesaoDisplayNames[curativo.lesao.situacao];
+    }
 }
+
+function converterPaciente(curativoPaciente: PacienteCurativoDto, telefone: string): PacienteResumoResult {
+    return {
+        id: curativoPaciente.id,
+        nome: curativoPaciente.nome,
+        sexo: curativoPaciente.sexo,
+        dataNascimento: curativoPaciente.dataNascimento,
+        cpf: curativoPaciente.cpf,
+        telefone: telefone 
+    };
+}
+
+function converterLesao(curativoLesao: LesaoCurativoDto, pacienteNome: string): LesaoResumoResult {
+    return {
+        id: curativoLesao.id,
+        detalhes: curativoLesao.detalhes,
+        paciente: pacienteNome, 
+        regiao: curativoLesao.regiao,
+        ladoRegiao: curativoLesao.ladoRegiao,
+        situacao: curativoLesao.situacao,
+    };
+}
+
+function converterCoberturas(coberturas: CoberturaResumoResult[]): CoberturaResumoResultSelect[] {
+    return coberturas.map(cobertura => ({
+        id: cobertura.id,
+        nome: cobertura.nome,
+        descricao: cobertura.descricao, 
+        selected: true, 
+    }));
+}
+
 
 function getRegisterCurativo(): RegisterCurativoRequest {
     const novoRegistro: RegisterCurativoRequest = {
@@ -300,11 +371,26 @@ function getRegisterCurativo(): RegisterCurativoRequest {
         Profundidade: parseFloat(profundidade.value) || 0,
         SituacaoLesao: situacaoSelected.value ? getSelectedSituacaoLesao(situacaoSelected.value) : SituacaoLesao.None,
     };
-
-    console.log('lesao', lesaoDataId.value)
-
     return novoRegistro;
 }
+
+function getUpdateCurativo(): UpdateCurativoRequest {
+  const updateRegistro: UpdateCurativoRequest = {
+    id: idItem.value,
+    pacienteId: pacienteDataId.value ? pacienteDataId.value : 0, 
+    lesaoId: lesaoDataId.value ? lesaoDataId.value : 0, 
+    coberturasIds: cobeturasSelecionadas.value.map(cobertura => cobertura.id), 
+    observacoes: detalhes.value || '', 
+    orientacoes: orientacoes.value || '', 
+    altura: parseFloat(altura.value) || 0,
+    largura: parseFloat(largura.value) || 0,
+    profundidade: parseFloat(profundidade.value) || 0,
+    situacao: situacaoSelected.value ? getSelectedSituacaoLesao(situacaoSelected.value) : SituacaoLesao.None,
+  };
+
+  return updateRegistro;
+}
+
 
 </script>
 

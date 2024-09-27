@@ -4,6 +4,7 @@ import { Membro } from "@/enums/Membro";
 import { Regiao } from "@/enums/Regiao";
 import { LadoRegiao } from "@/enums/LadoRegiao";
 import { TipoUlcera } from "@/enums/TipoUlcera";
+import { CoberturaResumoResult } from "./cobertura";
 
 export interface RegisterCurativoRequest {
     PacienteId: number;             
@@ -22,7 +23,7 @@ export interface CurativoDto {
     paciente: PacienteCurativoDto;
     lesao: LesaoCurativoDto;
     evolucao: EvolucaoLesaoCurativoDto;
-    coberturas: CoberturaCurativoDto[];
+    coberturas: CoberturaResumoResult[];
     orientacoes: string;
     detalhes: string;
 }
@@ -33,6 +34,7 @@ export interface PacienteCurativoDto {
     sexo: Sexo;
     dataNascimento: Date;
     cpf: string;
+    telefone: string;
 }
 
 export interface LesaoCurativoDto {
@@ -59,11 +61,25 @@ export interface EvolucaoLesaoCurativoDto {
     profundidade: number;
 }
 
-export interface CoberturaCurativoDto {
+export interface CurativoResumoResult {
     id: number;
-    nome: string;
+    lesao: string;
+    paciente: string;
+    data: Date; 
 }
 
+export interface UpdateCurativoRequest {
+    id: number;
+    pacienteId: number;
+    lesaoId: number;
+    coberturasIds: number[];
+    observacoes?: string; 
+    orientacoes?: string;
+    altura: number;
+    largura: number;
+    profundidade: number;
+    situacao: SituacaoLesao; 
+}
 
 export const createDefaultCurativo = (): CurativoDto => {
     return {
@@ -74,6 +90,7 @@ export const createDefaultCurativo = (): CurativoDto => {
             sexo: Sexo.Feminino,
             dataNascimento: new Date(),
             cpf: '',
+            telefone: '',
         },
         lesao: {
             id: 0,
