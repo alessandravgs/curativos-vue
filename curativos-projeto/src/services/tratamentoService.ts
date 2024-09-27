@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Cobertura, CoberturaResumoResult, CoberturaUpdateRequest } from '@/types/cobertura';
+import { Cobertura, CoberturaResumoResult } from '@/types/cobertura';
 import { PaginacaoResult } from '@/types/geral';
 
 

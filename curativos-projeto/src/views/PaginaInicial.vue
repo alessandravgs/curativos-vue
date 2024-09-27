@@ -6,8 +6,8 @@
           <v-sheet class="pa-2 ma-2 ">
             <v-card class="mx-auto" max-width="344">
                 <v-card-text>
-                    <div>Bem-Vinda</div>   
-                    <p class="text-h6 font-weight-black">Camila Duarte</p>
+                    <div>Bem-Vindo(a)</div>   
+                    <p class="text-h6 font-weight-black">{{ itemDetails?.nome }}</p>
                     <v-divider></v-divider>
             
                     <v-list density="compact">
@@ -21,9 +21,9 @@
                                 <v-icon :icon="item.icon"></v-icon>
                             </template>
 
-                            <v-list-item-content class="text-right">
+                            <div class="text-right">
                                 <v-list-item-title v-text="item.text"></v-list-item-title>
-                            </v-list-item-content>
+                            </div>
                         </v-list-item>
                     </v-list>
                 </v-card-text>
@@ -39,57 +39,37 @@
                 </v-card>
           </v-sheet>
         </v-col>
-
-        <v-col>
-            <v-card class="mx-auto" >
-                <v-card-text>
-                    <p class="text-h6 font-weight-black">Curativos nos últimos dias</p>
-                    <v-divider></v-divider>
-                    <v-progress-linear
-                        v-model="skill"
-                        color="indigo-darken-3"
-                        height="25"
-                        v-for="(item, i) in quantidadeCurativos"
-                            :key="i"
-                            :value="item"
-                        >
-                        <template v-slot:default="{ value }">
-                            <strong>{{ item.qtd }}%</strong>
-                        </template>
-                    </v-progress-linear>
-
-                </v-card-text>
-                </v-card>
-        </v-col>
       </v-row>
 
         
     </v-container>
   </template>
 
-<script setup>
-
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { ProfissionalDto } from '@/types/profissional';
+import { getProfissionalById } from '@/services/ProfissionalService';
 
+const itemDetails = ref<ProfissionalDto | null>(null);
+const items = ref<Array<{ text: string; icon: string }>>([]); 
+
+onMounted(async () => {
+  itemDetails.value = await getProfissionalById();
+  if (itemDetails.value) {
+    items.value = [
+      { text: itemDetails.value.cpf, icon: 'mdi-card-account-details-outline' },
+      { text: itemDetails.value.email, icon: 'mdi-email-outline' },
+      { text: itemDetails.value.telefone, icon: 'mdi-cellphone' },
+    ];
+  }
+});
 const router = useRouter();
 
 function navigateToProfissional() {
   router.push({ path: '/profissional' }).catch(err => console.error(err));
 }
 
-const items = [
-  { text: '586.589.468-60', icon: 'mdi-card-account-details-outline' },
-  { text: 'camila_duarte@gmail.com', icon: 'mdi-email-outline' },
-  { text: '(83) 98885-6989', icon: 'mdi-cellphone' },
-]
-
-const quantidadeCurativos = [
-  {dia: 'Segunda', qtd: 5},
-  {dia: 'Terça', qtd: 15}, 
-  {dia: 'Quarta', qtd: 25}, 
-  {dia: 'Quinta', qtd: 30}, 
-  {dia: 'Sexta', qtd: 10},  
-]
 </script>
 
 <style scoped>

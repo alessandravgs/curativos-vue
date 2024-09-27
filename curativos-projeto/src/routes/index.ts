@@ -14,10 +14,22 @@ import LesoesDetailView from '@/views/LesoesDetailView.vue';
 import TratamentoListView from '@/views/TratamentoListView.vue';
 import CadastroTratamento from '@/views/CadastroTratamento.vue';
 import TratamentoDetailView from '@/views/TratamentoDetailView.vue';
+import Apresentacao from '@/views/Apresentacao.vue';
+import Login from '@/views/Login.vue';
 
 const rotas: RouteRecordRaw[] = [
 {
     path:'/',
+    name: 'Apresentacao',
+    component: Apresentacao
+},
+{
+    path:'/login',
+    name: 'Login',
+    component: Login
+},      
+{
+    path:'/inicio',
     name: 'Inicio',
     component: PaginaInicial
 },    
@@ -117,5 +129,17 @@ const roteador = createRouter({
     history: createWebHashHistory(),
     routes: rotas
 })
+
+// Verifica se a rota precisa de autenticação antes de acessar 
+// e redireciona para login caso não ache token válido
+roteador.beforeEach((to, from, next) => {
+    const token = localStorage.getItem('token');
+  
+    if (to.meta.requiresAuth && !token) {
+      next({ name: 'Login' }); 
+    } else {
+      next();
+    }
+  });
 
 export default roteador;
