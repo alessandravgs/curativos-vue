@@ -8,15 +8,15 @@
               v-model="selectedPaciente"
               label="Buscar Paciente"
               prepend-inner-icon="mdi-magnify"
-              class="mx-1 rounded-textarea"
               @click="openDialog"
               readonly
+              rounded
             ></v-text-field>
           </v-col>
         </v-row>
   
         <!-- Dialog para buscar pacientes -->
-        <v-dialog v-model="dialog" max-width="700px" v-if="!isDialogDisabled">
+        <v-dialog v-model="dialog" max-width="700px" v-if="!isDialogDisabled" persistent>
           <v-card>
             <v-row>
                   <v-col>
@@ -192,9 +192,10 @@
     });
   </script>
   
-  <style scoped>
+<style scoped>
   .selected-paciente {
     background-color: rgba(0, 0, 255, 0.1); /* Indica o paciente selecionado */
   }
-  </style>
+
+</style>
   

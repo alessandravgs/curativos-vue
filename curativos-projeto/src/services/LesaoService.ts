@@ -88,6 +88,30 @@ export const getLesoesSearchPaginado = async (parametro: string, pageNumber = 1,
   }
 };
 
+export const getLesoesSearchByPacientePaginado = async (parametro: number, pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<LesaoResumoResult>> => {
+    try {
+  
+        const response = await axios.get<PaginacaoResult<LesaoResumoResult>>
+        ("https://localhost:7164/lesao/paciente", { params: { parametro, pageNumber, pageSize } });
+  
+      return response.data;
+  
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error('Erro ao consultar lesões:', error.response?.data || error.message);
+      } 
+      else {
+        console.error('Erro inesperado:', error);
+      }
+      return {
+        totalItems: 0,      
+        pageSize: 0,  
+        pageNumber: 1,    
+        items: []         
+      };
+    }
+  };
+
 export const getLesaoById = async (parametro: number): Promise<LesaoDto> => {
   try {
 

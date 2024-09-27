@@ -23,4 +23,11 @@
     Nome: string;
     Descricao: string;
  }
+
+ export interface CoberturaResumoResultSelect {
+    id: number;
+    nome: string;
+    descricao: string;
+    selected: boolean;
+  }
   
