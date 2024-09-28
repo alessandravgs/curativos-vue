@@ -33,7 +33,7 @@ npm run dev
 - Html
 - Css
 
-##Funcionalidades do Sistema
+## Funcionalidades do Sistema
 
 - Cadastrar Profissional: O primeiro passo para acessar o sistema é se cadastrar para ter acesso as funcionalidades.
 
