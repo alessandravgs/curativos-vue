@@ -12,6 +12,27 @@ O sistema faz acompanhamento de lesões a partir de curativos e avaliações.
 - **Email:** alessandravgs0@gmail.com
 - **GitHub:** [GitHub](https://github.com/alessandravgs)
 
+## Como executar o projeto
+
+- Baixar o código
+- Abrir no visual studio code
+- Instale as dependências
+```bash
+npm install
+```
+- Execute em modo desenvolvedor
+```bash
+npm run dev
+```
+
+## Tecnologias usadas
+
+- Vue 3
+- Vuetify 3
+- Typescript
+- Html
+- Css
+
 ##Funcionalidades do Sistema
 
 - Cadastrar Profissional: O primeiro passo para acessar o sistema é se cadastrar para ter acesso as funcionalidades.
