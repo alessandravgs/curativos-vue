@@ -33,11 +33,32 @@ O sistema faz acompanhamento de lesões a partir de curativos e avaliações.
 
 - Profissional cadastrar um paciente: O usuário pode cadastrar um paciente e vai ser esse personagem que a quem serão associados as lesões e os curativos.
 
-- Profissional acessa detalhes de um paciente
+![image](https://github.com/user-attachments/assets/b85b00a1-2bad-4f7c-9950-25927f5e6c22)
+
+- Profissional acessa detalhes de um paciente tanto em listagem como em detalhes
+
+![image](https://github.com/user-attachments/assets/3303428c-e7fc-4f77-8e69-30c13c359f22)
+
+![image](https://github.com/user-attachments/assets/cefcc491-bd0f-4be2-8fe5-8465117a536c)
+
 - Profissional edita dados de um paciente
+
+![image](https://github.com/user-attachments/assets/5aca5be7-1e87-48ba-b30a-49870b077b45)
+
 - Profissional cadastrar uma lesão
+
+![image](https://github.com/user-attachments/assets/8346ee02-ac75-4d3f-908f-810355215d06)
+
 - Profissional acessa dados de uma lesão
+
+![image](https://github.com/user-attachments/assets/14c0f0ac-f969-4740-80bc-c7dbe70bc08a)
+
+![image](https://github.com/user-attachments/assets/3c51ed49-6133-40ac-8309-9352f16662aa)
+
 - Profissional editar uma lesão
+
+![image](https://github.com/user-attachments/assets/61d3611b-5759-40a2-b3e0-4ba6db550fea)
+
 - Profissiona acessa os curativos que realizou: O usuário tem acesso em lista e em detalhes aos curativos que realizou
 
 ![image](https://github.com/user-attachments/assets/219436da-c246-4cef-a0d5-98897f404112)
