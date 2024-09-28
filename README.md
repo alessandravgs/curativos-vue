@@ -18,8 +18,8 @@ O sistema faz acompanhamento de lesões a partir de curativos e avaliações.
 ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7e8cf95-2fc8-44a1-a29f-1e752a79cfb1/7eb22a11-a34a-4d67-a3df-455db456a5c1/image.png)
 
 - Profissional realizar login: Após o cadastro ficar pronto o usuário pode acessar o sistema em uma das duas telas de login.
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7e8cf95-2fc8-44a1-a29f-1e752a79cfb1/caa756a7-78f6-4087-84dd-74d17a043bf4/image.png)
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7e8cf95-2fc8-44a1-a29f-1e752a79cfb1/ac97846f-6923-4d80-958c-8a1d3d6d5442/image.png)
+![image](https://github.com/user-attachments/assets/cc5163c0-93fd-48fd-8fee-45e34b7749f6)
+![image](https://github.com/user-attachments/assets/ade983bd-d61a-4a82-a02e-c9248767dd55)
 
 - Profissional acessa página inicial: O usuário ao se logar acessa a página inical com o resumo das informações do usuário.
 ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7e8cf95-2fc8-44a1-a29f-1e752a79cfb1/98a37825-6172-407f-8d36-415d457dc34f/image.png)
@@ -40,7 +40,8 @@ O sistema faz acompanhamento de lesões a partir de curativos e avaliações.
 ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7e8cf95-2fc8-44a1-a29f-1e752a79cfb1/eade634f-2874-45aa-8b39-660476db3f0b/image.png)
 
 - Profissional editar um curativo: O usuário que criou o curativo pode editar o mesmo.
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7e8cf95-2fc8-44a1-a29f-1e752a79cfb1/5e37223d-a996-448d-a9a7-8b92c3228974/image.png)
+![image](https://github.com/user-attachments/assets/95e06b6a-a049-4a0e-8fad-cd3822b97356)
+
 - Profissional acompanhar a evolução de uma lesão
 - Profissional acessar relatórios de curativos
 - Profissional cadastra coberturas para tratamento
