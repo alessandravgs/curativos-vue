@@ -274,6 +274,8 @@ const submitForm = async () => {
     
     if(isEditing.value){
       var curativoUpdate = getUpdateCurativo();
+      curativoUpdate.fotos = await convertFilesToBase64();
+      console.log(curativoUpdate)
       await updateCurativo(curativoUpdate);    
       
       if(!curativoUpdate){
@@ -409,6 +411,7 @@ function getUpdateCurativo(): UpdateCurativoRequest {
     largura: parseFloat(largura.value) || 0,
     profundidade: parseFloat(profundidade.value) || 0,
     situacao: situacaoSelected.value ? getSelectedSituacaoLesao(situacaoSelected.value) : SituacaoLesao.None,
+    fotos: []
   };
 
   return updateRegistro;

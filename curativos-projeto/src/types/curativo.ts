@@ -27,6 +27,7 @@ export interface CurativoDto {
     coberturas: CoberturaResumoResult[];
     orientacoes: string;
     detalhes: string;
+    fotos: string[];
 }
 
 export interface PacienteCurativoDto {
@@ -80,6 +81,7 @@ export interface UpdateCurativoRequest {
     largura: number;
     profundidade: number;
     situacao: SituacaoLesao; 
+    fotos: string[];
 }
 
 export const createDefaultCurativo = (): CurativoDto => {
@@ -118,5 +120,6 @@ export const createDefaultCurativo = (): CurativoDto => {
         coberturas: [],
         orientacoes: '',
         detalhes: '',
+        fotos: []
     };
 };

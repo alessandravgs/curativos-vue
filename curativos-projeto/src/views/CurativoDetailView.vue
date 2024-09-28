@@ -152,16 +152,16 @@
                 <v-container fluid>
                     <v-row>
                         <v-col
-                            v-for="i in 6"
-                            :key="i"
-                            cols="12"
-                            md="4"
+                        v-for="(foto, index) in fotosBase64"
+                        :key="index"
+                        cols="12"
+                        md="4"
                         >
                             <v-img
-                                :lazy-src="`https://picsum.photos/10/6?image=${1 * 1 * 5 + 10}`"
-                                :src="`https://picsum.photos/500/300?image=${1 * 1 * 5 + 10}`"
+                                :lazy-src="foto"
+                                :src="foto"
                                 height="205"
-                                cover
+                                contain 
                             ></v-img>
                         </v-col>
                     </v-row>
@@ -192,6 +192,8 @@ const coberturas = ref<string[]>([]);
 const situacao = ref('');
 const loading = ref(true); 
 const caracteristicas = ref<string[]>([]);
+
+const fotosBase64 = ref<string[]>([]);
 
 function navigateToEdit(item: number | undefined | null) {
   router.push({ path: `/curativos/novo`, query: { item }}).catch(err => console.error(err));
@@ -245,6 +247,7 @@ onMounted(async () => {
       coberturas.value = itemDetails.value.coberturas.map(cobertura => cobertura.nome);
       situacao.value = itemDetails?.value.lesao.situacao ? SituacaoLesaoDisplayNames[itemDetails?.value.lesao.situacao] : 'Nenhuma';
       caracteristicas.value = obterNomesDasCondicoes(itemDetails.value.lesao);
+      fotosBase64.value = itemDetails?.value.fotos.map(foto => `data:image/jpeg;base64,${foto}`);
   } else {
       console.error('ID não encontrado na query');
   }
