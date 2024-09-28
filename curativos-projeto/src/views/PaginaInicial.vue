@@ -4,7 +4,7 @@
         <v-row no-gutters>
         <v-col>
           <v-sheet class="pa-2 ma-2 ">
-            <v-card class="mx-auto" max-width="344">
+            <v-card class="mx-auto" max-width="800">
                 <v-card-text>
                     <div>Bem-Vindo(a)</div>   
                     <p class="text-h6 font-weight-black">{{ itemDetails?.nome }}</p>
