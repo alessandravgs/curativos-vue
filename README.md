@@ -20,7 +20,8 @@ O sistema faz acompanhamento de lesões a partir de curativos e avaliações.
 ```bash
 npm install
 ```
-- Execute em modo desenvolvedor
+- Execute o back-end
+- Execute o front em modo desenvolvedor
 ```bash
 npm run dev
 ```
