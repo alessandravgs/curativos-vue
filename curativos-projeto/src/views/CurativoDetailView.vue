@@ -152,6 +152,7 @@
                 <v-container fluid>
                     <v-row>
                         <v-col
+                        v-if="fotosBase64.length > 0"
                         v-for="(foto, index) in fotosBase64"
                         :key="index"
                         cols="12"
@@ -163,6 +164,13 @@
                                 height="205"
                                 contain 
                             ></v-img>
+                        </v-col>
+                        <v-col v-else>
+                            <v-empty-state
+                                icon="mdi-camera-off-outline"
+                                text="Não foram registradas imagens neste curativo."
+                                title="Curativos sem imagens!"
+                            ></v-empty-state>
                         </v-col>
                     </v-row>
                 </v-container>
