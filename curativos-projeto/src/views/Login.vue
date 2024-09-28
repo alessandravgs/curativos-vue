@@ -74,6 +74,7 @@
           href="#"
           rel="noopener noreferrer"
           target="_blank"
+          @click.prevent="navigateToCadastro"
         >
           Cadastre-se agora <v-icon icon="mdi-chevron-right"></v-icon>
         </a>
@@ -89,13 +90,18 @@ import { createApiClient } from '@/services/axios';
 import axios from 'axios';
 
 const visible = ref(false);
-const visibleCadastro = ref(true);
+const visibleCadastro = ref(false);
 
 onMounted(async () => {
-  if(props.apresentacao){
-    visibleCadastro.value = !props.apresentacao;
+  if(!props.apresentacao){
+    visibleCadastro.value = true;
   }
 });
+
+const navigateToCadastro = () => {
+  const cadastrar = 'true';
+  router.push({ name: 'Apresentacao', query: { cadastrar } }); 
+};
 
 const props = defineProps<{
   apresentacao?: boolean;

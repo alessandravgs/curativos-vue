@@ -42,7 +42,7 @@
         >
         <div :class="isRegistering ? 'banner4' : 'banner3'">
           <div v-if="isRegistering"><CadastroProfissional/> </div>
-          <div v-else="isRegistering"><Login/> </div>
+          <div v-else="isRegistering"><Login :apresentacao="true"></Login> </div>
         </div>
         </v-col>
       </v-row>
@@ -50,15 +50,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import Login from './Login.vue';
 import CadastroProfissional from '@/components/CadastroProfissional.vue';
+import { useRoute } from 'vue-router';
+
 
 const isRegistering = ref(false);
+const route = useRoute();
 
 function toggleLoginRegister() {
   isRegistering.value = !isRegistering.value;
 }
+
+onMounted(async () => {
+  const cadastrar = route.query.cadastrar;
+
+  if (cadastrar === 'true') {
+    isRegistering.value = true;
+  }
+});
+
 </script>
 
 <style scoped>
