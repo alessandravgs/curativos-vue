@@ -10,6 +10,7 @@
     "@mdi/font": "7.4.47",
     "axios": "^1.7.7",
     "jwt-decode": "^4.0.0",
+    "printd": "^1.6.0",
     "roboto-fontface": "*",
     "vee-validate": "^4.13.2",
     "vue": "^3.4.31",

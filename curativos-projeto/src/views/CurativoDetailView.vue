@@ -6,10 +6,18 @@
               <h1 class="text-indigo-darken-3">Curativo</h1>
           </v-col>
 
-          <v-spacer></v-spacer>
 
           <!-- Botão Editar -->
           <v-col class="text-right">
+                <v-btn  
+                  class="mx-1"
+                  color="indigo-darken-3"
+                  prepend-icon="mdi-printer"
+                  variant="outlined"
+                  @click="gerarRelatorio1"
+              >
+                  Gerar Relatório
+              </v-btn>
               <v-btn  
                   class="mx-1"
                   color="indigo-darken-3"
@@ -176,12 +184,12 @@
                 </v-container>
             </v-tabs-window-item>
         </v-tabs-window>
-      </div>
+    </div>
   </v-container>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { CurativoDto, LesaoCurativoDto } from '@/types/curativo';
 import { getCurativoById } from '@/services/CurativoService';
@@ -190,6 +198,7 @@ import { SituacaoLesaoDisplayNames } from '@/enums/SituacaoLesao';
 import { MembroDisplayNames } from '@/enums/Membro';
 import { TipoUlceraDisplayNames } from '@/enums/TipoUlcera';
 import { LadoRegiaoDisplayNames } from '@/enums/LadoRegiao';
+import printd from 'printd';
 
 const tab = ref(0);
 const idItem = ref(0);
@@ -256,12 +265,39 @@ onMounted(async () => {
       situacao.value = itemDetails?.value.lesao.situacao ? SituacaoLesaoDisplayNames[itemDetails?.value.lesao.situacao] : 'Nenhuma';
       caracteristicas.value = obterNomesDasCondicoes(itemDetails.value.lesao);
       fotosBase64.value = itemDetails?.value.fotos.map(foto => `data:image/jpeg;base64,${foto}`);
+
+      setItemStorage(itemDetails.value, coberturas.value, caracteristicas.value);
   } else {
       console.error('ID não encontrado na query');
   }
 
   loading.value = false; 
 });
+
+function setItemStorage(curativo: CurativoDto, coberturas: string[], caracteristicas: string[]){
+    localStorage.setItem('curativoDetalhes', JSON.stringify(curativo));
+    localStorage.setItem('relatorioCoberturas', JSON.stringify(coberturas));
+    localStorage.setItem('relatorioSituacao', situacao.value);
+    localStorage.setItem('relatorioCaracteristicas', JSON.stringify(caracteristicas));
+    localStorage.setItem('relatorioFotosBase64', JSON.stringify(fotosBase64.value));
+}
+
+function gerarRelatorio1(){
+    const url = `http://localhost:3000/#/relatorio-curativo`;
+                    const p = new printd(); 
+                    p.printURL(url, ({ launchPrint }) =>{
+                        launchPrint();
+                    });
+}
+
+onUnmounted(() => {
+    localStorage.removeItem('curativoDetalhes');
+    localStorage.removeItem('relatorioCoberturas');
+    localStorage.removeItem('relatorioSituacao');
+    localStorage.removeItem('relatorioCaracteristicas');
+    localStorage.removeItem('relatorioFotosBase64');
+});
+
 </script>
 
 <style scoped>
@@ -272,4 +308,5 @@ h3 {
 p {
   margin-bottom: 8px;
 }
+
 </style>

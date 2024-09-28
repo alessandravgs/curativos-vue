@@ -44,7 +44,7 @@
   // Verifica a rota atual para aplicar a condição
   watchEffect(() => {
     const currentRouteName = route.name;
-    isLoginOrHomePage.value = (currentRouteName === 'Login' || currentRouteName === 'Apresentacao');
+    isLoginOrHomePage.value = (currentRouteName === 'Login' || currentRouteName === 'Apresentacao' || currentRouteName === 'RelatorioCurativo');
     token.value = localStorage.getItem('token'); 
   });
   // Função de logout

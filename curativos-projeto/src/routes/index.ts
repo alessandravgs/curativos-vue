@@ -16,6 +16,7 @@ import CadastroTratamento from '@/views/CadastroTratamento.vue';
 import TratamentoDetailView from '@/views/TratamentoDetailView.vue';
 import Apresentacao from '@/views/Apresentacao.vue';
 import Login from '@/views/Login.vue';
+import RelatorioCurativoId from '@/components/Relatórios/RelatorioCurativoId.vue';
 
 const rotas: RouteRecordRaw[] = [
 {
@@ -85,6 +86,12 @@ const rotas: RouteRecordRaw[] = [
     name: 'Relatorios',
     component: Relatorios,
     meta: { requiresAuth: true }
+},
+{
+    path: '/relatorio-curativo',
+    name: 'RelatorioCurativo',
+    component: RelatorioCurativoId,
+    props: true, // Permitir passagem de props via rota
 },
 {
     path: '/lesoes',
