@@ -15,19 +15,21 @@ O sistema faz acompanhamento de lesões a partir de curativos e avaliações.
 ##Funcionalidades do Sistema
 
 - Cadastrar Profissional: O primeiro passo para acessar o sistema é se cadastrar para ter acesso as funcionalidades.
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7e8cf95-2fc8-44a1-a29f-1e752a79cfb1/7eb22a11-a34a-4d67-a3df-455db456a5c1/image.png)
+![image](https://github.com/user-attachments/assets/29e53d06-5b26-4973-a261-fd9ec7dc4b9d)
 
 - Profissional realizar login: Após o cadastro ficar pronto o usuário pode acessar o sistema em uma das duas telas de login.
 ![image](https://github.com/user-attachments/assets/cc5163c0-93fd-48fd-8fee-45e34b7749f6)
 ![image](https://github.com/user-attachments/assets/ade983bd-d61a-4a82-a02e-c9248767dd55)
 
 - Profissional acessa página inicial: O usuário ao se logar acessa a página inical com o resumo das informações do usuário.
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7e8cf95-2fc8-44a1-a29f-1e752a79cfb1/98a37825-6172-407f-8d36-415d457dc34f/image.png)
+![image](https://github.com/user-attachments/assets/b7f8ca11-625e-43ad-8d8b-ea9f1c94d1f9)
 
 - Profissional acessar seus detalhes e pode editar seus dados:
 ![image](https://github.com/user-attachments/assets/d6282d12-9825-4334-8bc5-9fc38b714167)
 
-- Profissional cadastrar um paciente
+- Profissional cadastrar um paciente: O usuário pode cadastrar um paciente e vai ser esse personagem que a quem serão associados as lesões e os curativos.
+![image](https://github.com/user-attachments/assets/a898617d-1eaf-4a26-a1d5-b3acf2c7c1c8)
+
 - Profissional acessa detalhes de um paciente
 - Profissional edita dados de um paciente
 - Profissional cadastrar uma lesão
