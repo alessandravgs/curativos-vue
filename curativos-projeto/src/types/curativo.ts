@@ -15,7 +15,8 @@ export interface RegisterCurativoRequest {
     Altura: number;                   
     Largura: number;                 
     Profundidade: number;             
-    SituacaoLesao: SituacaoLesao;         
+    SituacaoLesao: SituacaoLesao;
+    Fotos: string[];         
 }
 
 export interface CurativoDto {

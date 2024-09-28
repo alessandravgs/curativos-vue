@@ -108,6 +108,24 @@
                     <v-textarea label="Orientações ao Paciente" v-model="orientacoes" hide-details required class="rounded-textarea"></v-textarea>
                   </v-col>
                 </v-row>
+
+                <v-row>
+                  <v-col class="d-flex align-center">
+                    <v-icon color="indigo-darken-3" class="mr-2" style="font-size: 24px;">mdi-camera-outline</v-icon>
+                    <h3 class="text-indigo-darken-3 mb-0">Imagens</h3>
+                  </v-col>
+                </v-row>
+
+                <v-row class="mb-3">
+                  <v-col>
+                    <v-file-input
+                      label="Fotos"
+                      v-model="fotos"
+                      multiple
+                      accept="image/*"
+                    ></v-file-input>
+                  </v-col>
+                </v-row>
                 
                 <div class="d-flex justify-end mt-3">
                     <v-btn @click="handleReset" size="large"> Limpar </v-btn>
@@ -167,6 +185,9 @@ const detalhes = ref<string>('');
 
 //Campos de orientações
 const orientacoes = ref<string>('');
+
+//Campos de fotos
+const fotos = ref<File[]>([]);
 
 //Rules
 
@@ -261,6 +282,7 @@ const submitForm = async () => {
     }
     else{
       var novoCurativo = getRegisterCurativo();
+      novoCurativo.Fotos = await convertFilesToBase64();
       console.log(novoCurativo)
       var curativoCriado = await createCurativo(novoCurativo);
 
@@ -370,6 +392,7 @@ function getRegisterCurativo(): RegisterCurativoRequest {
         Largura: parseFloat(largura.value) || 0,
         Profundidade: parseFloat(profundidade.value) || 0,
         SituacaoLesao: situacaoSelected.value ? getSelectedSituacaoLesao(situacaoSelected.value) : SituacaoLesao.None,
+        Fotos: []
     };
     return novoRegistro;
 }
@@ -391,6 +414,22 @@ function getUpdateCurativo(): UpdateCurativoRequest {
   return updateRegistro;
 }
 
+// Função para converter todas as fotos para Base64
+const convertFilesToBase64 = (): Promise<string[]> => {
+  const promises = fotos.value.map((foto) => {
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        resolve(e.target?.result as string);
+      };
+      reader.onerror = (error) => {
+        reject(error);
+      };
+      reader.readAsDataURL(foto);
+    });
+  });
+  return Promise.all(promises);
+};
 
 </script>
 
