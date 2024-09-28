@@ -5,6 +5,7 @@ O sistema faz acompanhamento de lesões a partir de curativos e avaliações.
 
 - O projeto tem como objetivo ser apresentado como projeto final de pós graduação.
 - Back-End: https://github.com/alessandravgs/ProjetoFinal.git
+- Front-End: https://github.com/alessandravgs/curativos-vue
 
 ## Informações de Contato
 
