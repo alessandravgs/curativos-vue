@@ -4,6 +4,7 @@ Esta documentação descreve as funcionalidades do front-end responsável por ge
 O sistema faz acompanhamento de lesões a partir de curativos e avaliações.
 
 - O projeto tem como objetivo ser apresentado como projeto final de pós graduação.
+- Back-End: https://github.com/alessandravgs/ProjetoFinal.git
 
 ## Informações de Contato
 
