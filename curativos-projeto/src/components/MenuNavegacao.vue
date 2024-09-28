@@ -5,6 +5,7 @@
     permanent
     :class="{ 'drawer-expanded': isExpanded, 'drawer-collapsed': !isExpanded }"
     :width="drawerWidth"
+    color="#f5f5f5"
   >
     <!-- <v-img
       class="my-logo"
@@ -31,8 +32,8 @@
     <v-btn
       class="drawer-toggle-btn"
       icon
-      variant="text"
       @click="toggleDrawer"
+      base-color="grey-lighten-3"
     >
       <v-icon>mdi-menu</v-icon>
     </v-btn>

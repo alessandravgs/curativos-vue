@@ -3,7 +3,7 @@
     <v-img
       class="mx-auto my-6"
       max-width="400"
-      src="/seminar.png"
+      src="/seminar1.png"
     ></v-img>
 
     <v-card
@@ -68,7 +68,7 @@
           Login
         </v-btn>
       </v-form>
-      <v-card-text class="text-center">
+      <v-card-text class="text-center" v-if="visibleCadastro">
         <a
           class="text-indigo-darken-3 text-decoration-none"
           href="#"
@@ -83,12 +83,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, defineProps, onMounted  } from 'vue';
 import { useRouter } from 'vue-router';
 import { createApiClient } from '@/services/axios';
 import axios from 'axios';
 
 const visible = ref(false);
+const visibleCadastro = ref(true);
+
+onMounted(async () => {
+  if(props.apresentacao){
+    visibleCadastro.value = !props.apresentacao;
+  }
+});
+
+const props = defineProps<{
+  apresentacao?: boolean;
+}>();
 
 interface LoginForm {
   email: string;

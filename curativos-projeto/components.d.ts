@@ -8,8 +8,10 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AccordionMenu: typeof import('./src/components/AccordionMenu.vue')['default']
+    Alert: typeof import('./src/components/Alert.vue')['default']
     Avaliacao: typeof import('./src/components/Avaliacao.vue')['default']
     AvaliacaoFormulario: typeof import('./src/components/AvaliacaoFormulario.vue')['default']
+    CadastroProfissional: typeof import('./src/components/CadastroProfissional.vue')['default']
     CardCadastro: typeof import('./src/components/CardCadastro.vue')['default']
     ClassificacaoLesao: typeof import('./src/components/Lesao/ClassificacaoLesao.vue')['default']
     CoberturasSelecao: typeof import('./src/components/CoberturasSelecao.vue')['default']
