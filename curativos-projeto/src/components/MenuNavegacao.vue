@@ -6,13 +6,13 @@
     :class="{ 'drawer-expanded': isExpanded, 'drawer-collapsed': !isExpanded }"
     :width="drawerWidth"
   >
-    <v-img
+    <!-- <v-img
       class="my-logo"
       src="@/assets/logolimpa.png"
       contain
       max-width="80"
       max-height="80"
-    ></v-img>
+    ></v-img> -->
     <v-list density="default">
       <RouterLink
         v-for="(item, i) in menuItems"

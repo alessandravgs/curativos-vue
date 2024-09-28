@@ -4,7 +4,12 @@
       <!-- Renderizar MenuNavegacao e AppBar somente se a rota não for login ou home -->
       <template v-if="!isLoginOrHomePage">
         <MenuNavegacao/>
-        <v-app-bar title="Curativo Vital" class="px-3 text-indigo-darken-3 font-weight-bold">
+        <v-app-bar class="px-3 text-indigo-darken-3 font-weight-bold">
+          <v-img
+            src="/seminar.png"  
+            max-width="200"        
+            class="mr-2"        
+          ></v-img>
           <v-spacer></v-spacer>
           <v-btn
             :prepend-icon="theme === 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"
