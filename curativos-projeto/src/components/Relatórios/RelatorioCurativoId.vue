@@ -110,8 +110,8 @@ body {
 }
 
 #relatorio {
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%; /* Ocupa toda a largura */
+    margin: 0;
     background-color: white;
     padding: 20px;
     border-radius: 8px;

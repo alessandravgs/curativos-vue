@@ -2,10 +2,15 @@ import axios from 'axios';
 import { RegisterPacienteRequest, Alergia, Comorbidade, PacienteResumoResult, Paciente, UpdatePacienteRequest } from '@/types/paciente';
 import { PaginacaoResult } from '@/types/geral';
 import { Sexo } from '@/types/enums';
+import { useRouter } from 'vue-router';
+import { createApiClient } from '@/services/axios';
+
+const router = useRouter();
+const apiClient = createApiClient(router);
 
 export const createPaciente = async (data: RegisterPacienteRequest): Promise<Paciente | null> => {
   try {
-      const response = await axios.post<Paciente>('https://localhost:7164/paciente/register', data);
+      const response = await apiClient.post<Paciente>('/paciente/register', data);
       console.log('Paciente criado com sucesso:', response.data);
       return response.data;
   } catch (error) {
@@ -20,7 +25,7 @@ export const createPaciente = async (data: RegisterPacienteRequest): Promise<Pac
 
 export const updatePaciente = async (data: UpdatePacienteRequest): Promise<Paciente | null> => {
   try {
-      const response = await axios.post<Paciente>('https://localhost:7164/paciente/update', data);
+      const response = await apiClient.post<Paciente>('/paciente/update', data);
       console.log('Paciente atualizado com sucesso:', response.data);
       return response.data;
   } catch (error) {
@@ -36,7 +41,7 @@ export const updatePaciente = async (data: UpdatePacienteRequest): Promise<Pacie
 
 export const fetchAlergias = async (): Promise<Alergia[]> => {
   try {
-    const response = await axios.get<Alergia[]>('https://localhost:7164/paciente/alergias');
+    const response = await apiClient.get<Alergia[]>('/paciente/alergias');
     return response.data; 
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -50,7 +55,7 @@ export const fetchAlergias = async (): Promise<Alergia[]> => {
 
 export const fetchComorbidades = async (): Promise<Comorbidade[]> => {
   try {
-    const response = await axios.get<Comorbidade[]>('https://localhost:7164/paciente/comorbidades');
+    const response = await apiClient.get<Comorbidade[]>('/paciente/comorbidades');
     console.log("fecth")
     console.log(response.data)
     return response.data; 
@@ -66,8 +71,8 @@ export const fetchComorbidades = async (): Promise<Comorbidade[]> => {
 
 export const getPacientesPaginado = async (pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<PacienteResumoResult>> => {
   try {
-    const response = await axios.get<PaginacaoResult<PacienteResumoResult>>
-    ("https://localhost:7164/paciente/paginado", { params: { pageNumber, pageSize } });
+    const response = await apiClient.get<PaginacaoResult<PacienteResumoResult>>
+    ("/paciente/paginado", { params: { pageNumber, pageSize } });
 
     return response.data; 
   } 
@@ -91,8 +96,8 @@ export const getPacientesPaginado = async (pageNumber = 1, pageSize = 10): Promi
 export const getPacientesSearchPaginado = async (parametro: string, pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<PacienteResumoResult>> => {
   try {
 
-      const response = await axios.get<PaginacaoResult<PacienteResumoResult>>
-      ("https://localhost:7164/paciente/search", { params: { parametro, pageNumber, pageSize } });
+      const response = await apiClient.get<PaginacaoResult<PacienteResumoResult>>
+      ("/paciente/search", { params: { parametro, pageNumber, pageSize } });
 
     return response.data;
 
@@ -115,8 +120,8 @@ export const getPacientesSearchPaginado = async (parametro: string, pageNumber =
 export const getPacienteById = async (parametro: number): Promise<Paciente> => {
   try {
 
-      const response = await axios.get<Paciente>
-      ("https://localhost:7164/paciente/id", { params: { parametro } });
+      const response = await apiClient.get<Paciente>
+      ("/paciente/id", { params: { parametro } });
 
     return response.data;
 

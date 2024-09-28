@@ -27,14 +27,8 @@ export const createProfissional = async (data: RegisterProfissionalRequest): Pro
 export const getProfissionalById = async (): Promise<ProfissionalDto> => {
     try {
   
-        const token = localStorage.getItem('token');
-        const response = await axios.get<ProfissionalDto>
-        ("https://localhost:7164/profissional/dados", 
-        {
-            headers: {
-                Authorization: `Bearer ${token}` 
-            }
-        });
+        const response = await apiClient.get<ProfissionalDto>
+        ("/profissional/dados");
   
       return response.data;
   
@@ -51,12 +45,7 @@ export const getProfissionalById = async (): Promise<ProfissionalDto> => {
 
 export const updateProfissional = async (data: ProfissionalDto): Promise<ProfissionalDto | null> => {
     try {
-        const token = localStorage.getItem('token');
-        const response = await axios.post<ProfissionalDto>('https://localhost:7164/profissional/update', data, {
-            headers: {
-                Authorization: `Bearer ${token}` 
-            }
-        });
+        const response = await apiClient.post<ProfissionalDto>('/profissional/update', data);
         console.log('Profissional atualizado com sucesso:', response.data);
         return response.data;
     } catch (error) {

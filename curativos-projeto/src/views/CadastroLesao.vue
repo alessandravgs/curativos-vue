@@ -123,17 +123,17 @@
 
                 <v-row>
                   <v-col>
-                    <v-text-field label="Altura" v-model="altura" :rules="[rulesNumber.number]" 
+                    <v-text-field label="Altura (cm)" v-model="altura" :rules="[rulesNumber.number]" 
                     class="rounded-textarea"></v-text-field>
                   </v-col>
 
                   <v-col>
-                    <v-text-field label="Largura" v-model="largura" :rules="[rulesNumber.number]" 
+                    <v-text-field label="Largura (cm)" v-model="largura" :rules="[rulesNumber.number]" 
                     class="rounded-textarea"></v-text-field>
                   </v-col>
 
                   <v-col>
-                    <v-text-field label="Profundidade" v-model="profundidade" :rules="[rulesNumber.number]" 
+                    <v-text-field label="Profundidade (cm)" v-model="profundidade" :rules="[rulesNumber.number]" 
                     class="rounded-textarea"></v-text-field>
                   </v-col>
                 </v-row>

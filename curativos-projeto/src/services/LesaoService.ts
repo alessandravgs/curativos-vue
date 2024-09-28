@@ -7,10 +7,15 @@ import {  LadoRegiao } from '@/enums/LadoRegiao';
 import {  SituacaoLesao  } from '@/enums/SituacaoLesao';
 import {  TipoUlcera  } from '@/enums/TipoUlcera';
 import { Sexo } from '@/enums/Sexo';
+import { useRouter } from 'vue-router';
+import { createApiClient } from '@/services/axios';
+
+const router = useRouter();
+const apiClient = createApiClient(router);
 
 export const createLesao = async (data: RegisterLesaoRequest): Promise<LesaoDto | null> => {
   try {
-      const response = await axios.post<LesaoDto>('https://localhost:7164/lesao/register', data);
+      const response = await apiClient.post<LesaoDto>('/lesao/register', data);
       console.log('Lesão criada com sucesso:', response.data);
       return response.data;
   } catch (error) {
@@ -25,7 +30,7 @@ export const createLesao = async (data: RegisterLesaoRequest): Promise<LesaoDto 
 
 export const updateLesao = async (data: UpdateLesaoRequest): Promise<LesaoDto | null> => {
   try {
-      const response = await axios.post<LesaoDto>('https://localhost:7164/lesao/update', data);
+      const response = await apiClient.post<LesaoDto>('/lesao/update', data);
       console.log('Lesão atualizado com sucesso:', response.data);
       return response.data;
   } catch (error) {
@@ -42,8 +47,8 @@ export const updateLesao = async (data: UpdateLesaoRequest): Promise<LesaoDto | 
 
 export const getLesoesPaginado = async (pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<LesaoResumoResult>> => {
   try {
-    const response = await axios.get<PaginacaoResult<LesaoResumoResult>>
-    ("https://localhost:7164/lesao/paginado", { params: { pageNumber, pageSize } });
+    const response = await apiClient.get<PaginacaoResult<LesaoResumoResult>>
+    ("/lesao/paginado", { params: { pageNumber, pageSize } });
 
     return response.data; 
   } 
@@ -67,8 +72,8 @@ export const getLesoesPaginado = async (pageNumber = 1, pageSize = 10): Promise<
 export const getLesoesSearchPaginado = async (parametro: string, pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<LesaoResumoResult>> => {
   try {
 
-      const response = await axios.get<PaginacaoResult<LesaoResumoResult>>
-      ("https://localhost:7164/lesao/search", { params: { parametro, pageNumber, pageSize } });
+      const response = await apiClient.get<PaginacaoResult<LesaoResumoResult>>
+      ("/lesao/search", { params: { parametro, pageNumber, pageSize } });
 
     return response.data;
 
@@ -91,8 +96,8 @@ export const getLesoesSearchPaginado = async (parametro: string, pageNumber = 1,
 export const getLesoesSearchByPacientePaginado = async (parametro: number, pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<LesaoResumoResult>> => {
     try {
   
-        const response = await axios.get<PaginacaoResult<LesaoResumoResult>>
-        ("https://localhost:7164/lesao/paciente", { params: { parametro, pageNumber, pageSize } });
+        const response = await apiClient.get<PaginacaoResult<LesaoResumoResult>>
+        ("/lesao/paciente", { params: { parametro, pageNumber, pageSize } });
   
       return response.data;
   
@@ -115,8 +120,8 @@ export const getLesoesSearchByPacientePaginado = async (parametro: number, pageN
 export const getLesaoById = async (parametro: number): Promise<LesaoDto> => {
   try {
 
-      const response = await axios.get<LesaoDto>
-      ("https://localhost:7164/lesao/id", { params: { parametro } });
+      const response = await apiClient.get<LesaoDto>
+      ("/lesao/id", { params: { parametro } });
 
     return response.data;
 
