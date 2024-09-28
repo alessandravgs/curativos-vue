@@ -12,6 +12,14 @@
             slim
             @click="onClick"
           ></v-btn>
+          <v-btn
+            color="error"
+            prepend-icon="mdi-logout"
+            @click="logout"
+            v-if="token"
+          >
+            Logout
+          </v-btn>
         </v-app-bar>
       </template>
 
@@ -26,7 +34,7 @@
 
 <script setup lang="ts">
 import { ref, watchEffect  } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter  } from 'vue-router';
 import MenuNavegacao from './components/MenuNavegacao.vue';
 
 const theme = ref('light');
@@ -37,11 +45,21 @@ function onClick() {
 
 // Definir as rotas de login e home onde o layout deve ser simplificado
 const route = useRoute();
+const router = useRouter();
 const isLoginOrHomePage = ref(false);
+const token = ref<string | null>(localStorage.getItem('token'));
 
 // Verifica a rota atual para aplicar a condição
 watchEffect(() => {
   const currentRouteName = route.name;
   isLoginOrHomePage.value = (currentRouteName === 'Login' || currentRouteName === 'Apresentacao');
+  token.value = localStorage.getItem('token'); 
 });
+
+// Função de logout
+function logout() {
+  localStorage.removeItem('token');  // Remover o token do localStorage
+  token.value = null;                // Atualiza o estado do token (se estiver sendo monitorado)
+  router.push({ name: 'Login' });    // Redireciona para a página de login
+}
 </script>

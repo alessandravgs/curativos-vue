@@ -15,7 +15,7 @@
   <script setup lang="ts">
   import { ref } from 'vue';
   import { useRouter } from 'vue-router';
-  import apiClient from '@/services/axios';
+  import { createApiClient } from '@/services/axios';
   import axios from 'axios'; 
   
   interface LoginForm {
@@ -30,6 +30,7 @@
   
   const errorMessage = ref<string>('');
   const router = useRouter();
+  const apiClient = createApiClient(router);
   
   const login = async () => {
     try {

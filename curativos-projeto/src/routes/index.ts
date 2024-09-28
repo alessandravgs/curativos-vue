@@ -31,7 +31,8 @@ const rotas: RouteRecordRaw[] = [
 {
     path:'/inicio',
     name: 'Inicio',
-    component: PaginaInicial
+    component: PaginaInicial,
+    meta: { requiresAuth: true }
 },    
 {
     path:'/pacientes',
@@ -39,17 +40,20 @@ const rotas: RouteRecordRaw[] = [
         {
             path: '',
             name: 'Pacientes',
-            component: PacientesListView
+            component: PacientesListView,
+            meta: { requiresAuth: true }
         },
         {
             path:'novo',
             name: 'Novo Paciente',
-            component: CadastroPaciente
+            component: CadastroPaciente,
+            meta: { requiresAuth: true }
         },
         {
             path:'detalhes',
             name: 'Detalhes Paciente',
             component: PacienteDetailView,
+            meta: { requiresAuth: true }
         }
     ]
 },
@@ -59,24 +63,28 @@ const rotas: RouteRecordRaw[] = [
         {
             path: '',
             name: 'Curativos',
-            component: CurativosListView
+            component: CurativosListView,
+            meta: { requiresAuth: true }
         },
         {
             path:'novo',
             name: 'Novo Curativo',
-            component: CadastroCurativo
+            component: CadastroCurativo,
+            meta: { requiresAuth: true }
         },
         {
             path:'detalhes',
             name: 'Detalhes Curativo',
             component: CurativoDetailView,
+            meta: { requiresAuth: true }
         }
     ]
 },
 {
     path: '/relatorios',
     name: 'Relatorios',
-    component: Relatorios
+    component: Relatorios,
+    meta: { requiresAuth: true }
 },
 {
     path: '/lesoes',
@@ -84,17 +92,20 @@ const rotas: RouteRecordRaw[] = [
         {
             path: '',
             name: 'Lesoes',
-            component: LesoesListView
+            component: LesoesListView,
+            meta: { requiresAuth: true }
         },
         {
             path:'novo',
             name: 'Nova Lesao',
-            component: CadastroLesao
+            component: CadastroLesao,
+            meta: { requiresAuth: true }
         },
         {
             path:'detalhes',
             name: 'Detalhes Lesoes',
             component: LesoesDetailView,
+            meta: { requiresAuth: true }
         }
     ]
 },
@@ -104,24 +115,28 @@ const rotas: RouteRecordRaw[] = [
         {
             path: '',
             name: 'Tratamentos',
-            component: TratamentoListView
+            component: TratamentoListView,
+            meta: { requiresAuth: true }
         },
         {
             path:'novo',
             name: 'Novo Tratamento',
-            component: CadastroTratamento
+            component: CadastroTratamento,
+            meta: { requiresAuth: true }
         },
         {
             path:'detalhes',
             name: 'Detalhes Tratamento',
             component: TratamentoDetailView,
+            meta: { requiresAuth: true }
         }
     ]
 },
 {
     path: '/profissional',
     name: 'Profissional',
-    component: ProfissionalDetailView
+    component: ProfissionalDetailView,
+    meta: { requiresAuth: true }
 }
 ]
 
@@ -132,14 +147,15 @@ const roteador = createRouter({
 
 // Verifica se a rota precisa de autenticação antes de acessar 
 // e redireciona para login caso não ache token válido
-roteador.beforeEach((to, from, next) => {
+roteador.beforeEach((to, from, next) => {  
     const token = localStorage.getItem('token');
-  
+ 
+    // Verifica se a rota requer autenticação e se o token está ausente
     if (to.meta.requiresAuth && !token) {
-      next({ name: 'Login' }); 
+      next({ name: 'Login' });  // Redireciona para a página de login se não houver token
     } else {
-      next();
+      next();  // Permite a navegação normalmente
     }
-  });
+});
 
 export default roteador;
