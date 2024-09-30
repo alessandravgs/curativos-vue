@@ -96,7 +96,10 @@ npm run dev
 
 ![image](https://github.com/user-attachments/assets/95e06b6a-a049-4a0e-8fad-cd3822b97356)
 
-- Profissional acompanhar a evolução de uma lesão
+- Profissional acompanhar a evolução de uma lesão: A partir dos relatórios é possível acompanhar a evolução de uma lesão
+
+![image](https://github.com/user-attachments/assets/4d3ac59d-d20b-44b6-aad0-462e3d897d5b)
+
 - Profissional acessar relatórios de curativos: O usuário pode acessar relatórios de curativos.
 
 ![image](https://github.com/user-attachments/assets/18f2e3cf-5904-401d-bd68-e4f64839549e)
