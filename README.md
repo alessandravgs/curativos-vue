@@ -117,3 +117,8 @@ npm run dev
 ![image](https://github.com/user-attachments/assets/151b12a5-9ba6-4e2d-a748-b04864fb0b5f)
 
 ![image](https://github.com/user-attachments/assets/d59095fb-5937-40a7-b678-74cfa37b96d4)
+
+- Profissional tem uma gama de opções de relatórios para acompanhar os curativos e as lesões
+
+![image](https://github.com/user-attachments/assets/ada8d808-bac9-408c-97c7-950ef8dadc06)
+
