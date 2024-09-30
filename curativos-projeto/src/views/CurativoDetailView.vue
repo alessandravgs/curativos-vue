@@ -284,10 +284,10 @@ function setItemStorage(curativo: CurativoDto, coberturas: string[], caracterist
 
 function gerarRelatorio1(){
     const url = `http://localhost:3000/#/relatorio-curativo`;
-                    const p = new printd(); 
-                    p.printURL(url, ({ launchPrint }) =>{
-                        launchPrint();
-                    });
+    const p = new printd(); 
+    p.printURL(url, ({ launchPrint }) =>{
+        launchPrint();
+    });
 }
 
 onUnmounted(() => {

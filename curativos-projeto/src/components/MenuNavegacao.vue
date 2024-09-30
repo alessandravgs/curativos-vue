@@ -53,7 +53,7 @@ const menuItems = [
   { title: 'Pacientes', route: { name: 'Pacientes' }, icon: 'mdi-account-group' },
   { title: 'Lesões', route: { name: 'Lesoes' }, icon: 'mdi-heart-pulse' },
   { title: 'Tratamentos', route: { name: 'Tratamentos' }, icon: 'mdi-medication-outline' },
-  //{ title: 'Relatórios', route: { name: 'Relatorios' }, icon: 'mdi-file-document' },
+  { title: 'Relatórios', route: { name: 'Relatorios' }, icon: 'mdi-file-document' },
 ];
 
 function toggleDrawer() {

@@ -10,11 +10,10 @@ import { Sexo } from '@/enums/Sexo';
 import { useRouter } from 'vue-router';
 import { createApiClient } from '@/services/axios';
 
-const router = useRouter();
-const apiClient = createApiClient(router);
-
 export const createLesao = async (data: RegisterLesaoRequest): Promise<LesaoDto | null> => {
   try {
+    const router = useRouter();
+    const apiClient = createApiClient(router); 
       const response = await apiClient.post<LesaoDto>('/lesao/register', data);
       console.log('Lesão criada com sucesso:', response.data);
       return response.data;
@@ -30,6 +29,8 @@ export const createLesao = async (data: RegisterLesaoRequest): Promise<LesaoDto 
 
 export const updateLesao = async (data: UpdateLesaoRequest): Promise<LesaoDto | null> => {
   try {
+    const router = useRouter();
+    const apiClient = createApiClient(router); 
       const response = await apiClient.post<LesaoDto>('/lesao/update', data);
       console.log('Lesão atualizado com sucesso:', response.data);
       return response.data;
@@ -47,6 +48,8 @@ export const updateLesao = async (data: UpdateLesaoRequest): Promise<LesaoDto | 
 
 export const getLesoesPaginado = async (pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<LesaoResumoResult>> => {
   try {
+    const router = useRouter();
+    const apiClient = createApiClient(router); 
     const response = await apiClient.get<PaginacaoResult<LesaoResumoResult>>
     ("/lesao/paginado", { params: { pageNumber, pageSize } });
 
@@ -71,7 +74,8 @@ export const getLesoesPaginado = async (pageNumber = 1, pageSize = 10): Promise<
 
 export const getLesoesSearchPaginado = async (parametro: string, pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<LesaoResumoResult>> => {
   try {
-
+    const router = useRouter();
+    const apiClient = createApiClient(router); 
       const response = await apiClient.get<PaginacaoResult<LesaoResumoResult>>
       ("/lesao/search", { params: { parametro, pageNumber, pageSize } });
 
@@ -95,7 +99,8 @@ export const getLesoesSearchPaginado = async (parametro: string, pageNumber = 1,
 
 export const getLesoesSearchByPacientePaginado = async (parametro: number, pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<LesaoResumoResult>> => {
     try {
-  
+      const router = useRouter();
+      const apiClient = createApiClient(router); 
         const response = await apiClient.get<PaginacaoResult<LesaoResumoResult>>
         ("/lesao/paciente", { params: { parametro, pageNumber, pageSize } });
   
@@ -119,7 +124,9 @@ export const getLesoesSearchByPacientePaginado = async (parametro: number, pageN
 
 export const getLesaoById = async (parametro: number): Promise<LesaoDto> => {
   try {
-
+      const router = useRouter();
+      const apiClient = createApiClient(router); 
+      
       const response = await apiClient.get<LesaoDto>
       ("/lesao/id", { params: { parametro } });
 

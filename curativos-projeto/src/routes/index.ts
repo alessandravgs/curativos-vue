@@ -16,7 +16,11 @@ import CadastroTratamento from '@/views/CadastroTratamento.vue';
 import TratamentoDetailView from '@/views/TratamentoDetailView.vue';
 import Apresentacao from '@/views/Apresentacao.vue';
 import Login from '@/views/Login.vue';
-import RelatorioCurativoId from '@/components/Relatórios/RelatorioCurativoId.vue';
+import RelatorioCurativoId from '@/components/Relatorios/RelatorioCurativoId.vue';
+import RelatorioPorPaciente from '@/components/Relatorios/RelatorioPorPaciente.vue';
+import RelatorioPorPacientePorData from '@/components/Relatorios/RelatorioPorPacientePorData.vue';
+import RelatorioPorProfissional from '@/components/Relatorios/RelatorioPorProfissional.vue';
+import RelatorioPorLesao from '@/components/Relatorios/RelatorioPorLesao.vue';
 
 const rotas: RouteRecordRaw[] = [
 {
@@ -91,7 +95,31 @@ const rotas: RouteRecordRaw[] = [
     path: '/relatorio-curativo',
     name: 'RelatorioCurativo',
     component: RelatorioCurativoId,
-    props: true, // Permitir passagem de props via rota
+    props: true, 
+},
+{
+    path: '/relatorio-paciente-total',
+    name: 'RelatorioPacienteTotal',
+    component: RelatorioPorPaciente,
+    props: true, 
+},
+{
+    path: '/relatorio-paciente-periodo',
+    name: 'RelatorioPacientePeriodo',
+    component: RelatorioPorPacientePorData,
+    props: true, 
+},
+{
+    path: '/relatorio-profissional-periodo',
+    name: 'RelatorioProfissionalPeriodo',
+    component: RelatorioPorProfissional,
+    props: true, 
+},
+{
+    path: '/relatorio-lesao',
+    name: 'RelatorioPorLesao',
+    component: RelatorioPorLesao,
+    props: true, 
 },
 {
     path: '/lesoes',

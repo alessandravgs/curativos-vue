@@ -4,11 +4,10 @@ import { PaginacaoResult } from '@/types/geral';
 import { useRouter } from 'vue-router';
 import { createApiClient } from '@/services/axios';
 
-const router = useRouter();
-const apiClient = createApiClient(router);
-
 export const createCurativo = async (data: RegisterCurativoRequest): Promise<number | null> => {
     try {
+      const router = useRouter();
+      const apiClient = createApiClient(router); 
         const response = await apiClient.post<number>('/curativo/register', data);
         console.log('Curativo criado com sucesso:', response.data);
         return response.data;
@@ -24,6 +23,8 @@ export const createCurativo = async (data: RegisterCurativoRequest): Promise<num
 
 export const updateCurativo = async (data: UpdateCurativoRequest): Promise<number | null> => {
   try {
+    const router = useRouter();
+    const apiClient = createApiClient(router); 
       const response = await apiClient.post<number>('/curativo/update', data);
       console.log('Curativo atualizado com sucesso:', response.data);
       return response.data;
@@ -39,6 +40,8 @@ export const updateCurativo = async (data: UpdateCurativoRequest): Promise<numbe
 
 export const getCurativoById = async (parametro: number): Promise<CurativoDto> => {
     try {
+      const router = useRouter();
+      const apiClient = createApiClient(router); 
   
         const response = await apiClient.get<CurativoDto>
         ("/curativo/id", { params: { parametro } });
@@ -58,6 +61,9 @@ export const getCurativoById = async (parametro: number): Promise<CurativoDto> =
 
 export const getCurativosPaginado = async (pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<CurativoResumoResult>> => {
   try {
+
+    const router = useRouter();
+    const apiClient = createApiClient(router); 
     const response = await apiClient.get<PaginacaoResult<CurativoResumoResult>>
     ("/curativo/paginado", { params: { pageNumber, pageSize } });
 
@@ -82,7 +88,8 @@ export const getCurativosPaginado = async (pageNumber = 1, pageSize = 10): Promi
 
 export const getCurativoSearchByPacientePaginado = async (parametro: string, pageNumber = 1, pageSize = 10): Promise<PaginacaoResult<CurativoResumoResult>> => {
     try {
-  
+      const router = useRouter();
+      const apiClient = createApiClient(router); 
         const response = await apiClient.get<PaginacaoResult<CurativoResumoResult>>
         ("/curativo/search", { params: { parametro, pageNumber, pageSize } });
   

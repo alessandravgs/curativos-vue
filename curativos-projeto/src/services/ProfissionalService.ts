@@ -3,11 +3,10 @@ import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { createApiClient } from '@/services/axios';
 
-const router = useRouter();
-const apiClient = createApiClient(router);
-
 export const createProfissional = async (data: RegisterProfissionalRequest): Promise<boolean> => {
     try {
+        const router = useRouter();
+        const apiClient = createApiClient(router); 
         const response = await apiClient.post<boolean>('/profissional/register', data, 
         {
             skipAuth: true, 
@@ -26,7 +25,8 @@ export const createProfissional = async (data: RegisterProfissionalRequest): Pro
 
 export const getProfissionalById = async (): Promise<ProfissionalDto> => {
     try {
-  
+        const router = useRouter();
+        const apiClient = createApiClient(router); 
         const response = await apiClient.get<ProfissionalDto>
         ("/profissional/dados");
   
@@ -45,6 +45,8 @@ export const getProfissionalById = async (): Promise<ProfissionalDto> => {
 
 export const updateProfissional = async (data: ProfissionalDto): Promise<ProfissionalDto | null> => {
     try {
+        const router = useRouter();
+        const apiClient = createApiClient(router); 
         const response = await apiClient.post<ProfissionalDto>('/profissional/update', data);
         console.log('Profissional atualizado com sucesso:', response.data);
         return response.data;
