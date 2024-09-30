@@ -6,11 +6,10 @@
                <img src="/seminar1.png" alt="Curativo Vital">
            </div>
            <div class="titulo-container">
-               <h1>Relatório de curativos por paciente por periodo</h1>
+               <h1>Relatório de curativos por paciente por lesão</h1>
             </div>
         </header>
         
-        <h3 class="centro">{{ dataInicioPaciente }} - {{ dateFimPaciente }}</h3>
        <section class="paciente">
            <h2 class="centro">Paciente</h2>
            <div class="paciente-info">
